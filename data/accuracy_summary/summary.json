@@ -1,0 +1,82 @@
+{
+    "Llama-3.2-1B-Instruct": {
+        "BFCL_v3_parallel": {
+            "use_stag": {
+                "CALL_NUMBER_ERROR": 0.5628140703517588,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.0,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.09547738693467336,
+                "CORRECT_CALL": 0.3417085427135679
+            },
+            "no_stag": {
+                "CALL_NUMBER_ERROR": 0.542713567839196,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.005025125628140704,
+                "PARA_KEY_ERROR": 0.005025125628140704,
+                "TYPE_ERROR": 0.3316582914572864,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.08542713567839195,
+                "CORRECT_CALL": 0.03015075376884417
+            },
+            "correct_schema_rate": {
+                "no_stag": 0.1,
+                "use_stag": 1.0
+            }
+        },
+        "BFCL_v3_live_simple": {
+            "use_stag": {
+                "CALL_NUMBER_ERROR": 0.007782101167315175,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.0,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.33852140077821014,
+                "CORRECT_CALL": 0.6536964980544747
+            },
+            "no_stag": {
+                "CALL_NUMBER_ERROR": 0.2723735408560311,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.08171206225680934,
+                "PARA_KEY_ERROR": 0.007782101167315175,
+                "TYPE_ERROR": 0.1828793774319066,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.13618677042801555,
+                "CORRECT_CALL": 0.31906614785992227
+            },
+            "correct_schema_rate": {
+                "no_stag": 0.47085201793721976,
+                "use_stag": 1.0
+            }
+        },
+        "BFCL_v3_live_multiple": {
+            "use_stag": {
+                "CALL_NUMBER_ERROR": 0.7544031311154599,
+                "FUNC_SELECT_ERROR": 0.026418786692759294,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.0,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.08512720156555773,
+                "CORRECT_CALL": 0.1340508806262231
+            },
+            "no_stag": {
+                "CALL_NUMBER_ERROR": 0.7563600782778865,
+                "FUNC_SELECT_ERROR": 0.02054794520547945,
+                "FUNC_NAME_ERROR": 0.0273972602739726,
+                "PARA_KEY_ERROR": 0.0019569471624266144,
+                "TYPE_ERROR": 0.05283757338551859,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.06653620352250489,
+                "CORRECT_CALL": 0.07436399217221132
+            },
+            "correct_schema_rate": {
+                "no_stag": 0.3357142857142857,
+                "use_stag": 1.0
+            }
+        }
+    }
+}

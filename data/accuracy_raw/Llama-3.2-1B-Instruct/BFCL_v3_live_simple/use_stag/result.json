@@ -1,0 +1,4302 @@
+[
+    {
+        "id": 0,
+        "output": "{\"name\": \"get_user_info\", \"parameters\": {\"user_id\": 7890, \"special\": \"black\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_user_info",
+                    "arguments": {
+                        "user_id": 7890,
+                        "special": "black"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "output": "{\"name\": \"github_star\", \"parameters\": {\"repos\": \"ShishirPatil/gorilla,gorilla-llm/gorilla-cli\", \"aligned\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "github_star",
+                    "arguments": {
+                        "repos": "ShishirPatil/gorilla,gorilla-llm/gorilla-cli",
+                        "aligned": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "output": "{\"name\": \"uber.ride\", \"parameters\": {\"loc\": \"2020 Addison Street, Berkeley, CA, USA\", \"type\": \"comfort\", \"time\": 600}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.ride",
+                    "arguments": {
+                        "loc": "2020 Addison Street, Berkeley, CA, USA",
+                        "type": "comfort",
+                        "time": 600
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "output": "{\"name\": \"uber.ride\", \"parameters\": {\"loc\": \"221B Baker Street, Berkeley, CA, USA\", \"type\": \"plus\", \"time\": 600}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.ride",
+                    "arguments": {
+                        "loc": "221B Baker Street, Berkeley, CA, USA",
+                        "type": "plus",
+                        "time": 600
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Tel Aviv, Israel\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Tel Aviv, Israel"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Divin\u00f3polis, MG\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Divin\u00f3polis, MG"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"San Francisco, CA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "San Francisco, CA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Riga, Latvia\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Riga, Latvia"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"London, UK\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "London, UK"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Hyderabad, India\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Hyderabad, India"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Mariposa, CA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Mariposa, CA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Naples, FL\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Naples, FL"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"New York, NY\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "New York, NY"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"\u4e0a\u6d77, China\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "\u4e0a\u6d77, China"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Bangkok, Thailand\", \"unit\": \"fahrenheit\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Bangkok, Thailand",
+                        "unit": "fahrenheit"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Chennai, Tamil Nadu\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Chennai, Tamil Nadu"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Lang Son, Vietnam\", \"unit\": \"fahrenheit\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Lang Son, Vietnam",
+                        "unit": "fahrenheit"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Boston, MA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Boston, MA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Moscow, Russia\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Moscow, Russia"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Quintana Roo, Mexico\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Quintana Roo, Mexico"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "output": "{\"name\": \"change_food\", \"parameters\": {\"food_item\": \"burger\", \"modification_request\": \"no onions, extra cheese\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "change_food",
+                    "arguments": {
+                        "food_item": "burger",
+                        "modification_request": "no onions, extra cheese"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "output": "{\"name\": \"change_food\", \"parameters\": {\"food_item\": \"chicken dish\", \"modification_request\": \"extra spicy\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "change_food",
+                    "arguments": {
+                        "food_item": "chicken dish",
+                        "modification_request": "extra spicy"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "output": "{\"name\": \"ChaFod\", \"parameters\": {\"TheFod\": \"BURGER\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ChaFod",
+                    "arguments": {
+                        "TheFod": "BURGER"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "output": "{\"name\": \"ChaFod\", \"parameters\": {\"TheFod\": \"PIZZA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ChaFod",
+                    "arguments": {
+                        "TheFod": "PIZZA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "output": "{\"name\": \"ChaFod\", \"parameters\": {\"TheFod\": \"BURGER\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ChaFod",
+                    "arguments": {
+                        "TheFod": "BURGER"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "output": "{\"name\": \"ChaFod\", \"parameters\": {\"TheFod\": \"PIZZA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ChaFod",
+                    "arguments": {
+                        "TheFod": "PIZZA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "output": "{\"name\": \"uber.ride\", \"parameters\": {\"loc\": \"123 \u0110\u01b0\u1eddng \u0110\u1ea1i h\u1ecdc, Berkeley, CA 94704\", \"type\": \"plus\", \"time\": 10}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.ride",
+                    "arguments": {
+                        "loc": "123 \u0110\u01b0\u1eddng \u0110\u1ea1i h\u1ecdc, Berkeley, CA 94704",
+                        "type": "plus",
+                        "time": 10
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "output": "{\"name\": \"uber.eat.order\", \"parameters\": {\"restaurant\": \"Uber Pita\", \"items\": [\"burgers\", \"chicken wings\"], \"quantities\": [5, 6]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.eat.order",
+                    "arguments": {
+                        "restaurant": "Uber Pita",
+                        "items": [
+                            "burgers",
+                            "chicken wings"
+                        ],
+                        "quantities": [
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "output": "{\"name\": \"uber.eat.order\", \"parameters\": {\"restaurant\": \"\u80af\u5fb7\u57fa\", \"items\": [\"\u9ea6\u8fa3\u9e21\u817f\u5821\", \"\u53ef\u53e3\u53ef\u4e50\", \"\u6cb9\u70b8\u9e21\u7fc5\", \"\u85af\u6761\"], \"quantities\": [10, 50, 30, 90]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.eat.order",
+                    "arguments": {
+                        "restaurant": "\u80af\u5fb7\u57fa",
+                        "items": [
+                            "\u9ea6\u8fa3\u9e21\u817f\u5821",
+                            "\u53ef\u53e3\u53ef\u4e50",
+                            "\u6cb9\u70b8\u9e21\u7fc5",
+                            "\u85af\u6761"
+                        ],
+                        "quantities": [
+                            10,
+                            50,
+                            30,
+                            90
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "output": "{\"name\": \"uber.eat.order\", \"parameters\": {\"restaurant\": \"McDonald's\", \"items\": [\"pizza\"], \"quantities\": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ",
+        "call": []
+    },
+    {
+        "id": 30,
+        "output": "{\"name\": \"aws.lexv2_models.list_exports\", \"parameters\": {\"botId\": \"my-bot-id\", \"botVersion\": \"v2\", \"sortBy\": \"ASC\", \"filterName\": \"None\", \"filterOperator\": \"EQ\", \"filterValue\": \"None\", \"maxResults\": 50, \"nextToken\": \"None\", \"localeId\": \"None\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "aws.lexv2_models.list_exports",
+                    "arguments": {
+                        "botId": "my-bot-id",
+                        "botVersion": "v2",
+                        "sortBy": "ASC",
+                        "filterName": "None",
+                        "filterOperator": "EQ",
+                        "filterValue": "None",
+                        "maxResults": 50,
+                        "nextToken": "None",
+                        "localeId": "None"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "output": "{\"name\": \"aws.lexv2_models.list_exports\", \"parameters\": {\"botId\": \"B12345\", \"botVersion\": \"v1\", \"sortBy\": \"DESC\", \"filterName\": \"Bot\", \"filterOperator\": \"EQ\", \"filterValue\": \"\", \"maxResults\": 50, \"nextToken\": \"\", \"localeId\": \"en-US\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "aws.lexv2_models.list_exports",
+                    "arguments": {
+                        "botId": "B12345",
+                        "botVersion": "v1",
+                        "sortBy": "DESC",
+                        "filterName": "Bot",
+                        "filterOperator": "EQ",
+                        "filterValue": "",
+                        "maxResults": 50,
+                        "nextToken": "",
+                        "localeId": "en-US"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "output": "{\"name\": \"answer.string\", \"parameters\": {\"answer\": \"Logistic regression is not present in the text, therefore I cannot answer this question.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "answer.string",
+                    "arguments": {
+                        "answer": "Logistic regression is not present in the text, therefore I cannot answer this question."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "output": "{\"name\": \"answer.string\", \"parameters\": {\"answer\": \"Logistic regression is not present in the text, therefore I cannot answer this question.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "answer.string",
+                    "arguments": {
+                        "answer": "Logistic regression is not present in the text, therefore I cannot answer this question."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "output": "{\"name\": \"answer.string\", \"parameters\": {\"answer\": \"**Logistic regression is not present in the text, therefore I cannot answer this question.**\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "answer.string",
+                    "arguments": {
+                        "answer": "**Logistic regression is not present in the text, therefore I cannot answer this question.**"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "output": "{\"name\": \"answer.string\", \"parameters\": {\"answer\": \"Logistic regression is a type of supervised learning algorithm used for classification problems, where the goal is to predict a categorical outcome (e.g., 0 or 1, yes or no, etc.) based on one or more input features. It is commonly used in machine learning and data science for tasks such as spam detection, credit risk assessment, and medical diagnosis.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "answer.string",
+                    "arguments": {
+                        "answer": "Logistic regression is a type of supervised learning algorithm used for classification problems, where the goal is to predict a categorical outcome (e.g., 0 or 1, yes or no, etc.) based on one or more input features. It is commonly used in machine learning and data science for tasks such as spam detection, credit risk assessment, and medical diagnosis."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "output": "{\"name\": \"parseAnswer\", \"parameters\": {\"answer\": \"The text does not define logistic regression, therefore I cannot answer this question.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "parseAnswer",
+                    "arguments": {
+                        "answer": "The text does not define logistic regression, therefore I cannot answer this question."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "output": "{\"name\": \"parseAnswer\", \"parameters\": {\"answer\": \"The text does not define logistic regression, therefore I cannot answer this question.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "parseAnswer",
+                    "arguments": {
+                        "answer": "The text does not define logistic regression, therefore I cannot answer this question."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Mariposa, CA\", \"unit\": \"fahrenheit\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Mariposa, CA",
+                        "unit": "fahrenheit"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "output": "{\"name\": \"fetch_weather_data\", \"parameters\": {\"latitude\": 37.8651, \"longitude\": 119.5383, \"units\": \"metric\", \"language\": \"en\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "fetch_weather_data",
+                    "arguments": {
+                        "latitude": 37.8651,
+                        "longitude": 119.5383,
+                        "units": "metric",
+                        "language": "en"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"airConJobMode\": \"AIR_CLEAN\", \"windStrength\": \"HIGH\", \"monitoringEnabled\": true, \"airCleanOperationMode\": \"POWER_ON\", \"powerSaveEnabled\": false, \"coolTargetTemperature\": 24, \"targetTemperature\": 22}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "airConJobMode": "AIR_CLEAN",
+                            "windStrength": "HIGH",
+                            "monitoringEnabled": true,
+                            "airCleanOperationMode": "POWER_ON",
+                            "powerSaveEnabled": false,
+                            "coolTargetTemperature": 24,
+                            "targetTemperature": 22
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"airConJobMode\": \"AIR_DRY\", \"windStrength\": \"MID\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "airConJobMode": "AIR_DRY",
+                            "windStrength": "MID"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"airConJobMode\": \"AIR_DRY\", \"monitoringEnabled\": true, \"airCleanOperationMode\": \"POWER_OFF\", \"powerSaveEnabled\": true, \"coolTargetTemperature\": 22, \"targetTemperature\": 22}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "airConJobMode": "AIR_DRY",
+                            "monitoringEnabled": true,
+                            "airCleanOperationMode": "POWER_OFF",
+                            "powerSaveEnabled": true,
+                            "coolTargetTemperature": 22,
+                            "targetTemperature": 22
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"airConJobMode\": \"COOL\", \"windStrength\": \"HIGH\", \"monitoringEnabled\": false, \"airCleanOperationMode\": \"POWER_OFF\", \"powerSaveEnabled\": false, \"coolTargetTemperature\": 24, \"targetTemperature\": 22}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "airConJobMode": "COOL",
+                            "windStrength": "HIGH",
+                            "monitoringEnabled": false,
+                            "airCleanOperationMode": "POWER_OFF",
+                            "powerSaveEnabled": false,
+                            "coolTargetTemperature": 24,
+                            "targetTemperature": 22
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"currentJobMode\": \"COOL\", \"airCleanOperationMode\": \"START\", \"airConOperationMode\": \"POWER_ON\", \"powerSaveEnabled\": false, \"coolTargetTemperature\": 24, \"targetTemperature\": 22}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "currentJobMode": "COOL",
+                            "airCleanOperationMode": "START",
+                            "airConOperationMode": "POWER_ON",
+                            "powerSaveEnabled": false,
+                            "coolTargetTemperature": 24,
+                            "targetTemperature": 22
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"currentJobMode\": \"COOL\", \"airCleanOperationMode\": \"START\", \"airConOperationMode\": \"POWER_ON\", \"powerSaveEnabled\": false, \"coolTargetTemperature\": 20, \"targetTemperature\": 22}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "currentJobMode": "COOL",
+                            "airCleanOperationMode": "START",
+                            "airConOperationMode": "POWER_ON",
+                            "powerSaveEnabled": false,
+                            "coolTargetTemperature": 20,
+                            "targetTemperature": 22
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"airConJobMode\": \"COOL\", \"windStrength\": \"MID\", \"monitoringEnabled\": true, \"airCleanOperationMode\": \"START\", \"airConOperationMode\": \"POWER_OFF\", \"powerSaveEnabled\": false, \"targetTemperature\": 24}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "airConJobMode": "COOL",
+                        "windStrength": "MID",
+                        "monitoringEnabled": true,
+                        "airCleanOperationMode": "START",
+                        "airConOperationMode": "POWER_OFF",
+                        "powerSaveEnabled": false,
+                        "targetTemperature": 24
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "output": "{\"name\": \"multiply\", \"parameters\": {\"a\": 3, \"b\": 2}}",
+        "call": [
+            {
+                "function": {
+                    "name": "multiply",
+                    "arguments": {
+                        "a": 3,
+                        "b": 2
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "output": "{\"name\": \"find_beer\", \"parameters\": {\"brewery\": \"Sierra Nevada\", \"taste\": \"bitter\", \"aroma\": \"hoppy\", \"color\": \"pale\", \"style\": \"lager\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "find_beer",
+                    "arguments": {
+                        "brewery": "Sierra Nevada",
+                        "taste": "bitter",
+                        "aroma": "hoppy",
+                        "color": "pale",
+                        "style": "lager"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "output": "{\"name\": \"find_beer\", \"parameters\": {\"brewery\": \"Creek Brewery\", \"taste\": \"rich, chocolatey\", \"aroma\": \"slightly bitter\", \"color\": \"dark\", \"style\": \"Porter\", \"abv_min\": 0.0, \"abv_max\": 12.5, \"ibu_min\": 0, \"ibu_max\": 120, \"pairings\": [\"chocolate\", \"nuts\", \"dark chocolate\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "find_beer",
+                    "arguments": {
+                        "brewery": "Creek Brewery",
+                        "taste": "rich, chocolatey",
+                        "aroma": "slightly bitter",
+                        "color": "dark",
+                        "style": "Porter",
+                        "abv_min": 0.0,
+                        "abv_max": 12.5,
+                        "ibu_min": 0,
+                        "ibu_max": 120,
+                        "pairings": [
+                            "chocolate",
+                            "nuts",
+                            "dark chocolate"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "output": "{\"name\": \"get_latest_carbon_intensity\", \"parameters\": {\"zone\": \"Great Britain\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_latest_carbon_intensity",
+                    "arguments": {
+                        "zone": "Great Britain"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 51,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"airConJobMode\": \"COOL\", \"windStrength\": \"HIGH\", \"monitoringEnabled\": true, \"airCleanOperationMode\": \"START\", \"airConOperationMode\": \"POWER_ON\", \"powerSaveEnabled\": true, \"targetTemperature\": 22, \"relativeHourToStop\": 1, \"relativeMinuteToStop\": 30, \"relativeHourToStart\": 1, \"relativeMinuteToStart\": 30}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "airConJobMode": "COOL",
+                            "windStrength": "HIGH",
+                            "monitoringEnabled": true,
+                            "airCleanOperationMode": "START",
+                            "airConOperationMode": "POWER_ON",
+                            "powerSaveEnabled": true,
+                            "targetTemperature": 22,
+                            "relativeHourToStop": 1,
+                            "relativeMinuteToStop": 30,
+                            "relativeHourToStart": 1,
+                            "relativeMinuteToStart": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "output": "{\"name\": \"ThinQ_Connect\", \"parameters\": {\"body\": {\"airConOperationMode\": \"POWER_OFF\", \"targetTemperature\": 20, \"relativeMinuteToStart\": 60}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "ThinQ_Connect",
+                    "arguments": {
+                        "body": {
+                            "airConOperationMode": "POWER_OFF",
+                            "targetTemperature": 20,
+                            "relativeMinuteToStart": 60
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "output": "{\"name\": \"todo_add\", \"parameters\": {\"content\": \"go for shopping at 9 pm\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo_add",
+                    "arguments": {
+                        "content": "go for shopping at 9 pm"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"delete\", \"content\": \"Remove the 'todo random' item from my todo list.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "delete",
+                        "content": "Remove the 'todo random' item from my todo list."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 55,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"add\", \"content\": \"go for shopping at 9 pm\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "add",
+                        "content": "go for shopping at 9 pm"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 56,
+        "output": "{\"name\": \"todo_manager.handle_action\", \"parameters\": {\"type\": \"delete\", \"content\": \"go to gym\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo_manager.handle_action",
+                    "arguments": {
+                        "type": "delete",
+                        "content": "go to gym"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 57,
+        "output": "{\"name\": \"todo_manager.handle_action\", \"parameters\": {\"type\": \"add\", \"content\": \"go to sleep at 9 pm\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo_manager.handle_action",
+                    "arguments": {
+                        "type": "add",
+                        "content": "go to sleep at 9 pm"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 58,
+        "output": "{\"name\": \"get_movies\", \"parameters\": {\"city\": \"Mumbai\", \"cinema_hall\": \"PVR Logix\", \"movie_date\": \"24th Feb, 2023\", \"movie_language\": \"All\", \"movie_format\": \"2D\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_movies",
+                    "arguments": {
+                        "city": "Mumbai",
+                        "cinema_hall": "PVR Logix",
+                        "movie_date": "24th Feb, 2023",
+                        "movie_language": "All",
+                        "movie_format": "2D"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 59,
+        "output": "{\"name\": \"get_movies\", \"parameters\": {\"city\": \"Mumbai\", \"cinema_hall\": \"None\", \"movie_date\": \"today\", \"movie_language\": \"None\", \"movie_format\": \"2D\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_movies",
+                    "arguments": {
+                        "city": "Mumbai",
+                        "cinema_hall": "None",
+                        "movie_date": "today",
+                        "movie_language": "None",
+                        "movie_format": "2D"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 60,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"complete\", \"content\": \"Submit monthly financial report\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "complete",
+                        "content": "Submit monthly financial report"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 61,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"add\", \"content\": \"go to gym tomorrow.\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "add",
+                        "content": "go to gym tomorrow."
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 62,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"delete\", \"content\": \"ravi\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "delete",
+                        "content": "ravi"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 63,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"add\", \"content\": \"go to sleep at 9 pm\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "add",
+                        "content": "go to sleep at 9 pm"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 64,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"complete\", \"content\": \"go to Goa\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "complete",
+                        "content": "go to Goa"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 65,
+        "output": "{\"name\": \"todo\", \"parameters\": {\"type\": \"add\", \"content\": \"Hi charlie\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "todo",
+                    "arguments": {
+                        "type": "add",
+                        "content": "Hi charlie"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 66,
+        "output": "{\"name\": \"inventory.restock_check\", \"parameters\": {\"item_ids\": [102, 103], \"threshold\": 20, \"include_discontinued\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "inventory.restock_check",
+                    "arguments": {
+                        "item_ids": [
+                            102,
+                            103
+                        ],
+                        "threshold": 20,
+                        "include_discontinued": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 67,
+        "output": "{\"name\": \"obtener_cotizacion_de_creditos\", \"parameters\": {\"monto_del_credito\": 1000000, \"plazo_del_credito_mensual\": 12, \"producto\": \"auto\", \"a\u00f1o_vehiculo\": 2024, \"enganche\": 0.2}}",
+        "call": [
+            {
+                "function": {
+                    "name": "obtener_cotizacion_de_creditos",
+                    "arguments": {
+                        "monto_del_credito": 1000000,
+                        "plazo_del_credito_mensual": 12,
+                        "producto": "auto",
+                        "a\u00f1o_vehiculo": 2024,
+                        "enganche": 0.2
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 68,
+        "output": "{\"name\": \"sum\", \"parameters\": {\"a\": 5.0, \"b\": 3.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sum",
+                    "arguments": {
+                        "a": 5.0,
+                        "b": 3.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 69,
+        "output": "{\"name\": \"analysis_api.AnalysisApi.retrieve_analysis\", \"parameters\": {\"project\": \"SUPERFANCY\", \"component\": \"AB1010CD\", \"vulnerability\": \"ef903ac-893-f00\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "analysis_api.AnalysisApi.retrieve_analysis",
+                    "arguments": {
+                        "project": "SUPERFANCY",
+                        "component": "AB1010CD",
+                        "vulnerability": "ef903ac-893-f00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 70,
+        "output": "{\"name\": \"get_sensor_alerts\", \"parameters\": {\"perPage\": 10, \"startingAfter\": \"2023-10-14T00:00:00.000Z\", \"endingBefore\": \"2023-10-14T23:59:59.999Z\", \"t0\": \"2023-10-14\", \"t1\": \"2023-10-15\", \"networkId\": [\"Q3CC-CRT3-SZ2G\"], \"triggerMetric\": \"apparentPower\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_sensor_alerts",
+                    "arguments": {
+                        "perPage": 10,
+                        "startingAfter": "2023-10-14T00:00:00.000Z",
+                        "endingBefore": "2023-10-14T23:59:59.999Z",
+                        "t0": "2023-10-14",
+                        "t1": "2023-10-15",
+                        "networkId": [
+                            "Q3CC-CRT3-SZ2G"
+                        ],
+                        "triggerMetric": "apparentPower"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 71,
+        "output": "{\"name\": \"extract_parameters_v1\", \"parameters\": {\"targets\": [\"millennials\", \"Apple\"], \"metrics\": \"view\", \"country\": \"USA\", \"interval\": \"year\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "extract_parameters_v1",
+                    "arguments": {
+                        "targets": [
+                            "millennials",
+                            "Apple"
+                        ],
+                        "metrics": "view",
+                        "country": "USA",
+                        "interval": "year"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 72,
+        "output": "{\"name\": \"detect_beats_and_filter\", \"parameters\": {\"capture_percentage\": 50, \"confidence_window_size\": 0.5}}",
+        "call": [
+            {
+                "function": {
+                    "name": "detect_beats_and_filter",
+                    "arguments": {
+                        "capture_percentage": 50,
+                        "confidence_window_size": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 73,
+        "output": "{\"name\": \"detect_beats_and_filter\", \"parameters\": {\"capture_percentage\": 90, \"confidence_window_size\": 0.25}}",
+        "call": [
+            {
+                "function": {
+                    "name": "detect_beats_and_filter",
+                    "arguments": {
+                        "capture_percentage": 90,
+                        "confidence_window_size": 0.25
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 74,
+        "output": "{\"name\": \"detect_beats_and_filter\", \"parameters\": {\"capture_percentage\": 70, \"confidence_window_size\": 0.8}}",
+        "call": [
+            {
+                "function": {
+                    "name": "detect_beats_and_filter",
+                    "arguments": {
+                        "capture_percentage": 70,
+                        "confidence_window_size": 0.8
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 75,
+        "output": "{\"name\": \"detect_beats_and_filter\", \"parameters\": {\"capture_percentage\": 93, \"confidence_window_size\": 0.5}}",
+        "call": [
+            {
+                "function": {
+                    "name": "detect_beats_and_filter",
+                    "arguments": {
+                        "capture_percentage": 93,
+                        "confidence_window_size": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 76,
+        "output": "{\"name\": \"language_translator.translate\", \"parameters\": {\"source_language\": \"en\", \"target_language\": \"fr\", \"text\": \"What is your name?\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "language_translator.translate",
+                    "arguments": {
+                        "source_language": "en",
+                        "target_language": "fr",
+                        "text": "What is your name?"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 77,
+        "output": "{\"name\": \"weather.get\", \"parameters\": {\"city\": \"London\", \"country\": \"UK\", \"units\": \"metric\", \"include_forecast\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "weather.get",
+                    "arguments": {
+                        "city": "London",
+                        "country": "UK",
+                        "units": "metric",
+                        "include_forecast": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 78,
+        "output": "{\"name\": \"send_email\", \"parameters\": {\"to_address\": \"andy@gorilla.ai\", \"subject\": \"Sales Forecast Request\", \"body\": \"where is the latest sales forecast spreadsheet?\", \"cc_address\": \"null\", \"bcc_address\": \"null\", \"attachments\": []}}",
+        "call": [
+            {
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to_address": "andy@gorilla.ai",
+                        "subject": "Sales Forecast Request",
+                        "body": "where is the latest sales forecast spreadsheet?",
+                        "cc_address": "null",
+                        "bcc_address": "null",
+                        "attachments": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 79,
+        "output": "{\"name\": \"search_hotels\", \"parameters\": {\"location\": \"San Diego, CA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "search_hotels",
+                    "arguments": {
+                        "location": "San Diego, CA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 80,
+        "output": "{\"name\": \"sitefinity_create_contentitem\", \"parameters\": {\"Title\": \"Breakthrough in Artificial Intelligence\", \"Content\": \"The latest advancements in AI have led to significant breakthroughs in machine learning algorithms. These advancements have the potential to revolutionize various industries and improve our daily lives. In this article, we will explore the recent developments in AI and machine learning technology.\", \"MetaTitle\": \"AI Breakthrough Latest Developments in Machine Learning\", \"MetaDescription\": \"An overview of the recent significant advancements in artificial intelligence and machine learning technology\", \"UrlName\": \"ai-breakthrough-latest-developments\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sitefinity_create_contentitem",
+                    "arguments": {
+                        "Title": "Breakthrough in Artificial Intelligence",
+                        "Content": "The latest advancements in AI have led to significant breakthroughs in machine learning algorithms. These advancements have the potential to revolutionize various industries and improve our daily lives. In this article, we will explore the recent developments in AI and machine learning technology.",
+                        "MetaTitle": "AI Breakthrough Latest Developments in Machine Learning",
+                        "MetaDescription": "An overview of the recent significant advancements in artificial intelligence and machine learning technology",
+                        "UrlName": "ai-breakthrough-latest-developments"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 81,
+        "output": "{\"name\": \"sitefinity_create_contentitem\", \"parameters\": {\"ContentItem\": \"NewsItem\", \"Title\": \"Julian is testing12\", \"MetaTitle\": \"Julian is testing12\", \"MetaDescription\": \"Julian is testing12\", \"UrlName\": \"Julian is testing12\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sitefinity_create_contentitem",
+                    "arguments": {
+                        "ContentItem": "NewsItem",
+                        "Title": "Julian is testing12",
+                        "MetaTitle": "Julian is testing12",
+                        "MetaDescription": "Julian is testing12",
+                        "UrlName": "Julian is testing12"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 82,
+        "output": "{\"name\": \"sitefinity_create_contentitem\", \"parameters\": {\"ContentItem\": \"News\", \"Title\": \"Julian is testing\", \"Content\": \"Julian is testing\", \"MetaTitle\": \"Julian is testing\", \"MetaDescription\": \"Julian is testing\", \"UrlName\": \"Julian is testing\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sitefinity_create_contentitem",
+                    "arguments": {
+                        "ContentItem": "News",
+                        "Title": "Julian is testing",
+                        "Content": "Julian is testing",
+                        "MetaTitle": "Julian is testing",
+                        "MetaDescription": "Julian is testing",
+                        "UrlName": "Julian is testing"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 83,
+        "output": "{\"name\": \"sitefinity_create_contentitem\", \"parameters\": {\"ContentItem\": \"news\", \"Title\": \"Julian is Testing\", \"Content\": \"a detailed analysis on the impact of sleep patterns on productivity\", \"MetaTitle\": \"Productivity and Sleep Patterns\", \"MetaDescription\": \"Exploring how sleep affects work efficiency\", \"UrlName\": \"julian-testing-productivity\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sitefinity_create_contentitem",
+                    "arguments": {
+                        "ContentItem": "news",
+                        "Title": "Julian is Testing",
+                        "Content": "a detailed analysis on the impact of sleep patterns on productivity",
+                        "MetaTitle": "Productivity and Sleep Patterns",
+                        "MetaDescription": "Exploring how sleep affects work efficiency",
+                        "UrlName": "julian-testing-productivity"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 84,
+        "output": "{\"name\": \"get_coordinates_from_city\", \"parameters\": {\"city_name\": \"Seattle\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_coordinates_from_city",
+                    "arguments": {
+                        "city_name": "Seattle"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 85,
+        "output": "{\"name\": \"open_meteo_api.fetch_weather_data\", \"parameters\": {\"coordinates\": [-122.2730, 37.8715], \"units\": \"Celsius\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "open_meteo_api.fetch_weather_data",
+                    "arguments": {
+                        "coordinates": [
+                            -122.273,
+                            37.8715
+                        ],
+                        "units": "Celsius"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 86,
+        "output": "{\"name\": \"sort_array\", \"parameters\": {\"array\": [1, 54, 3, 1, 76, 2343, 21], \"reverse\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sort_array",
+                    "arguments": {
+                        "array": [
+                            1,
+                            54,
+                            3,
+                            1,
+                            76,
+                            2343,
+                            21
+                        ],
+                        "reverse": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 87,
+        "output": "{\"name\": \"get_current_loc\", \"parameters\": {\"coordinate_format\": \"DMS\", \"include_altitude\": true, \"timeout\": 30}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_loc",
+                    "arguments": {
+                        "coordinate_format": "DMS",
+                        "include_altitude": true,
+                        "timeout": 30
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 88,
+        "output": "{\"name\": \"log_food\", \"parameters\": {\"food_name\": \"chai tea with half and half\", \"portion_amount\": 16, \"meal_name\": \"snack\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "log_food",
+                    "arguments": {
+                        "food_name": "chai tea with half and half",
+                        "portion_amount": 16,
+                        "meal_name": "snack"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 89,
+        "output": "{\"name\": \"interior_design_analysis.generate_report\", \"parameters\": {\"user_preferences\": \"{\\\"style\\\": \\\"modern\\\", \\\"color_scheme\\\": \\\"warm\\\", \\\"budget\\\": \\\"mid-range\\\"}\", \"data_source\": \"internal_database\", \"output_format\": \"DOCX\", \"include_visuals\": true, \"environmental_impact_focus\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "interior_design_analysis.generate_report",
+                    "arguments": {
+                        "user_preferences": "{\"style\": \"modern\", \"color_scheme\": \"warm\", \"budget\": \"mid-range\"}",
+                        "data_source": "internal_database",
+                        "output_format": "DOCX",
+                        "include_visuals": true,
+                        "environmental_impact_focus": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 90,
+        "output": "{\"name\": \"temperature\", \"parameters\": {\"location\": \"Paris, France\", \"units\": \"Celsius\", \"time\": \"2023-03-01T00:00:00Z\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "temperature",
+                    "arguments": {
+                        "location": "Paris, France",
+                        "units": "Celsius",
+                        "time": "2023-03-01T00:00:00Z"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 91,
+        "output": "{\"name\": \"fetchPerson\", \"parameters\": {\"id\": 4}}",
+        "call": [
+            {
+                "function": {
+                    "name": "fetchPerson",
+                    "arguments": {
+                        "id": 4
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 92,
+        "output": "{\"name\": \"play_artist\", \"parameters\": {\"artist_name\": \"K\u00e4\u00e4rij\\u00e4\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_artist",
+                    "arguments": {
+                        "artist_name": "K\u00e4\u00e4rij\u00e4"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 93,
+        "output": "{\"name\": \"play_artist\", \"parameters\": {\"artist_name\": \"K\u00e4\u00e4rij\\u00e4\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_artist",
+                    "arguments": {
+                        "artist_name": "K\u00e4\u00e4rij\u00e4"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 94,
+        "output": "{\"name\": \"play_song\", \"parameters\": {\"artist_name\": \"K\u00e4\u00e4rij\\u00e4\", \"song_name\": \"Cha Cha Cha\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_song",
+                    "arguments": {
+                        "artist_name": "K\u00e4\u00e4rij\u00e4",
+                        "song_name": "Cha Cha Cha"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 95,
+        "output": "{\"name\": \"process_data\", \"parameters\": {\"data\": [\n], \"normalize\": true, \"categories\": [\"red\", \"blue\", \"green\"], \"encoding_type\": \"one-hot\", \"missing_values\": \"mean\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "process_data",
+                    "arguments": {
+                        "data": [],
+                        "normalize": true,
+                        "categories": [
+                            "red",
+                            "blue",
+                            "green"
+                        ],
+                        "encoding_type": "one-hot",
+                        "missing_values": "mean"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 96,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"Boston, MA\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "Boston, MA"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 97,
+        "output": "{\"name\": \"get_current_weather\", \"parameters\": {\"location\": \"El Gastor, Andalusia\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_current_weather",
+                    "arguments": {
+                        "location": "El Gastor, Andalusia"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 98,
+        "output": "{\"name\": \"get_weather_by_coordinates\", \"parameters\": {\"city\": \"Chennai\", \"lat\": 13.0827, \"lon\": 80.2707}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_weather_by_coordinates",
+                    "arguments": {
+                        "city": "Chennai",
+                        "lat": 13.0827,
+                        "lon": 80.2707
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 99,
+        "output": "{\"name\": \"connectBluetooth\", \"parameters\": {\"device_name\": \"ue boom\", \"timeout\": 30, \"auto_reconnect\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "connectBluetooth",
+                    "arguments": {
+                        "device_name": "ue boom",
+                        "timeout": 30,
+                        "auto_reconnect": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 100,
+        "output": "{\"name\": \"connectBluetooth\", \"parameters\": {\"device_name\": \"JBL Flip 4\", \"timeout\": 30, \"auto_reconnect\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "connectBluetooth",
+                    "arguments": {
+                        "device_name": "JBL Flip 4",
+                        "timeout": 30,
+                        "auto_reconnect": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 101,
+        "output": "{\"name\": \"askForSSID\", \"parameters\": {\"prompt_message\": \"Please enter the Wi-Fi network name you wish to connect to:\", \"default_ssid\": \"default_network\", \"retry_attempts\": 3, \"hide_input\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "askForSSID",
+                    "arguments": {
+                        "prompt_message": "Please enter the Wi-Fi network name you wish to connect to:",
+                        "default_ssid": "default_network",
+                        "retry_attempts": 3,
+                        "hide_input": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "output": "{\"name\": \"calculate_tax\", \"parameters\": {\"purchase_amount\": 59.99, \"state\": \"CA\", \"county\": \"San Francisco\", \"city\": \"San Francisco\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "calculate_tax",
+                    "arguments": {
+                        "purchase_amount": 59.99,
+                        "state": "CA",
+                        "county": "San Francisco",
+                        "city": "San Francisco"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 103,
+        "output": "{\"name\": \"calculate_tax\", \"parameters\": {\"purchase_amount\": 999.0, \"state\": \"CA\", \"county\": \"default\", \"city\": \"default\", \"tax_exempt\": false, \"discount_rate\": 0.0, \"apply_special_tax\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "calculate_tax",
+                    "arguments": {
+                        "purchase_amount": 999.0,
+                        "state": "CA",
+                        "county": "default",
+                        "city": "default",
+                        "tax_exempt": false,
+                        "discount_rate": 0.0,
+                        "apply_special_tax": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 104,
+        "output": "{\"name\": \"calculate_tax\", \"parameters\": {\"purchase_amount\": 250, \"state\": \"NY\", \"county\": \"None\", \"city\": \"None\", \"tax_exempt\": false, \"discount_rate\": 0.0, \"apply_special_tax\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "calculate_tax",
+                    "arguments": {
+                        "purchase_amount": 250,
+                        "state": "NY",
+                        "county": "None",
+                        "city": "None",
+                        "tax_exempt": false,
+                        "discount_rate": 0.0,
+                        "apply_special_tax": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 105,
+        "output": "{\"name\": \"classify\", \"parameters\": {\"clean_hello\": [\"hello\", \"hi\", \"hey\"], \"faq_link_accounts_start\": [\"link my account\", \"connect my accounts\", \"login my account\", \"create an account\", \"account linking\", \"account login\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "classify",
+                    "arguments": {
+                        "clean_hello": [
+                            "hello",
+                            "hi",
+                            "hey"
+                        ],
+                        "faq_link_accounts_start": [
+                            "link my account",
+                            "connect my accounts",
+                            "login my account",
+                            "create an account",
+                            "account linking",
+                            "account login"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 106,
+        "output": "{\"name\": \"record\", \"parameters\": {\"acc_routing_start\": [\"Please provide the routing number for my account.\", \"Which account number should I use for setting up eStatements?\", \"What rewards are offered for my card?\", \"Looking for the closest ATM for cash withdrawal, can you assist me in finding one?\", \"What rewards are available on my card?\", \"Locate ATM for immediate cash needs\", \"I urgently need to find an ATM for cash withdrawal, can you help me locate the nearest one?\", \"Activate my new card for loyalty program enrollment\", \"I want to cancel my card and ensure the safety of my account.\", \"Searching for ATM for money withdrawal\", \"Can you walk me through the activation process for my new bank card?\", \"What are the benefits of using my rewards points for entertainment?\", \"Find ATM for urgent cash needs\", \"Need to find ATM for quick cash emergency\", \"I'm done here. Goodbye!\", \"Please give me the account number for my business checking account.\", \"Can I purchase a cashier's check through this chat service?\", \"Thanks for your assistance. Goodbye!\", \"I need a cashier's check, how can I get one?\", \"You're amazing. Goodbye!\"], \"activate_card_start\": [\"Please provide the routing number for my account.\", \"Which account number should I use for setting up eStatements?\", \"What rewards are offered for my card?\", \"Looking for the closest ATM for cash withdrawal, can you assist me in finding one?\", \"What rewards are available on my card?\", \"Locate ATM for immediate cash needs\", \"I urgently need to find an ATM for cash withdrawal, can you help me locate the nearest one?\", \"Activate my new card for loyalty program enrollment\", \"I want to cancel my card and ensure the safety of my account.\", \"Searching for ATM for money withdrawal\", \"Can you walk me through the activation process for my new bank card?\", \"What are the benefits of using my rewards points for entertainment?\", \"Find ATM for urgent cash needs\", \"Need to find ATM for quick cash emergency\", \"I'm done here. Goodbye!\", \"Please give me the account number for my business checking account.\", \"Can I purchase a cashier's check through this chat service?\", \"Thanks for your assistance. Goodbye!\", \"I need a cashier's check, how can I get one?\", \"You're amazing. Goodbye!\"], \"atm_finder_start\": [\"Looking for the closest ATM for cash withdrawal, can you assist me in finding one?\", \"What rewards are available on my card?\", \"Locate ATM for immediate cash needs\", \"I urgently need to find an ATM for cash withdrawal, can you help me locate the nearest one?\", \"Activate my new card for loyalty program enrollment\", \"I want to cancel my card and ensure the safety of my account.\", \"Searching for ATM for money withdrawal\", \"Can you walk me through the activation process for my new bank card?\", \"What are the benefits of using my rewards points for entertainment?\", \"Find ATM for urgent cash needs\", \"Need to find ATM for quick cash emergency\", \"I'm done here. Goodbye!\", \"Please give me the account number for my business checking account.\", \"Can I purchase a cashier's check through this chat service?\", \"Thanks for your assistance. Goodbye!\", \"I need a cashier's check, how can I get one?\", \"You're amazing. Goodbye!\"], \"auto_loan_payment_start\": [\"Looking for the closest ATM for cash withdrawal, can you assist me in finding one?\", \"What rewards are available on my card?\", \"Locate ATM for immediate cash needs\", \"I urgently need to find an ATM for cash withdrawal, can you help me locate the nearest one?\", \"Activate my new card for loyalty program enrollment\", \"I want to cancel my card and ensure the safety of my account.\", \"Searching for ATM for money withdrawal\", \"Can you walk me through the activation process for my new bank card?\", \"What are the benefits of using my rewards points for entertainment?\", \"Find ATM for urgent cash needs\", \"Need to find ATM for quick cash emergency\", \"I'm done here. Goodbye!\", \"Please give me the account number for my business checking account.\", \"Can I purchase a cashier's check through this chat service?\", \"Thanks for your assistance. Goodbye!\", \"I need a cashier's check, how can I get one?\", \"You're amazing. Goodbye!\"], \"bank_hours_start\": [\"Looking for the closest ATM for cash withdrawal, can you assist me in finding one?\", \"What rewards are available on my card?\", \"Locate ATM for immediate cash needs\", \"I urgently need to find an ATM for cash withdrawal, can you help me locate the nearest one?\", \"Activate my new card for loyalty program enrollment\", \"I want to cancel my card and ensure the safety of my account.\", \"Searching for ATM for money withdrawal\", \"Can you walk me through the activation process for my new bank card?\", \"What are the benefits of using",
+        "call": []
+    },
+    {
+        "id": 107,
+        "output": "{\"name\": \"record\", \"parameters\": {\"faq_describe_telephone_banking_start\": [\"How do I sign up for tele-banking services through the mobile app?\", \"Can I sign up for telephone banking services?\", \"Where can I find the application for telephone banking services?\"], \"bank_hours_start\": [\"What are the working hours of the bank?\", \"Are the bank branches open on weekends?\", \"What are the bank hours on holidays?\"], \"faq_describe_accounts_start\": [\"I'm interested in opening a long term savings account. What options do you have?\", \"Are any banks open in Sri Lanka right now?\", \"Do you offer any special accounts for children or minors?\", \"Do you offer any special accounts for individuals looking to save for a home purchase or renovation?\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "record",
+                    "arguments": {
+                        "faq_describe_telephone_banking_start": [
+                            "How do I sign up for tele-banking services through the mobile app?",
+                            "Can I sign up for telephone banking services?",
+                            "Where can I find the application for telephone banking services?"
+                        ],
+                        "bank_hours_start": [
+                            "What are the working hours of the bank?",
+                            "Are the bank branches open on weekends?",
+                            "What are the bank hours on holidays?"
+                        ],
+                        "faq_describe_accounts_start": [
+                            "I'm interested in opening a long term savings account. What options do you have?",
+                            "Are any banks open in Sri Lanka right now?",
+                            "Do you offer any special accounts for children or minors?",
+                            "Do you offer any special accounts for individuals looking to save for a home purchase or renovation?"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 108,
+        "output": "{\"name\": \"record\", \"parameters\": {\"money_movement_start\": [\"Can you show me all outgoing wire transfers?\", \"I need my credit card limit raised.\", \"I need to view all transactions labeled as \\\"checks\\\" on my account.\"], \"get_transactions_start\": [\"Can you assist me in combining my personal and savings accounts?\", \"I need to view all transactions labeled as \\\"checks\\\" on my account.\", \"Please assist me in combining my accounts for a streamlined experience.\"], \"credit_limit_increase_start\": [\"I would like to see the details of my most recent ATM withdrawal.\", \"Can you give me a summary of my recent debit card transactions?\"], \"faq_link_accounts_start\": [\"I need my credit card limit raised.\", \"Can you assist me in getting a higher credit card limit?\", \"Can you assist me in linking my auto loan and savings accounts?\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "record",
+                    "arguments": {
+                        "money_movement_start": [
+                            "Can you show me all outgoing wire transfers?",
+                            "I need my credit card limit raised.",
+                            "I need to view all transactions labeled as \"checks\" on my account."
+                        ],
+                        "get_transactions_start": [
+                            "Can you assist me in combining my personal and savings accounts?",
+                            "I need to view all transactions labeled as \"checks\" on my account.",
+                            "Please assist me in combining my accounts for a streamlined experience."
+                        ],
+                        "credit_limit_increase_start": [
+                            "I would like to see the details of my most recent ATM withdrawal.",
+                            "Can you give me a summary of my recent debit card transactions?"
+                        ],
+                        "faq_link_accounts_start": [
+                            "I need my credit card limit raised.",
+                            "Can you assist me in getting a higher credit card limit?",
+                            "Can you assist me in linking my auto loan and savings accounts?"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 109,
+        "output": "{\"name\": \"record\", \"parameters\": {\"faq_auto_withdraw_start\": [\"Can I use bonuses or commissions as part of my income for a loan application?\", \"Can I schedule automatic withdrawals for different dates?\", \"How much do I owe on my home equity loan?\", \"Will my income be verified during the loan application process?\", \"Is there a minimum income threshold for loan approval?\"], \"payment_information_start\": [\"Can I use bonuses or commissions as part of my income for a loan application?\", \"Can I schedule automatic withdrawals for different dates?\", \"How much do I owe on my home equity loan?\", \"Will my income be verified during the loan application process?\", \"Is there a minimum income threshold for loan approval?\"], \"pma_income_requirements_start\": [\"Can I use bonuses or commissions as part of my income for a loan application?\", \"Can I schedule automatic withdrawals for different dates?\", \"How much do I owe on my home equity loan?\", \"Will my income be verified during the loan application process?\", \"Is there a minimum income threshold for loan approval?\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "record",
+                    "arguments": {
+                        "faq_auto_withdraw_start": [
+                            "Can I use bonuses or commissions as part of my income for a loan application?",
+                            "Can I schedule automatic withdrawals for different dates?",
+                            "How much do I owe on my home equity loan?",
+                            "Will my income be verified during the loan application process?",
+                            "Is there a minimum income threshold for loan approval?"
+                        ],
+                        "payment_information_start": [
+                            "Can I use bonuses or commissions as part of my income for a loan application?",
+                            "Can I schedule automatic withdrawals for different dates?",
+                            "How much do I owe on my home equity loan?",
+                            "Will my income be verified during the loan application process?",
+                            "Is there a minimum income threshold for loan approval?"
+                        ],
+                        "pma_income_requirements_start": [
+                            "Can I use bonuses or commissions as part of my income for a loan application?",
+                            "Can I schedule automatic withdrawals for different dates?",
+                            "How much do I owe on my home equity loan?",
+                            "Will my income be verified during the loan application process?",
+                            "Is there a minimum income threshold for loan approval?"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 110,
+        "output": "{\"name\": \"record\", \"parameters\": {\"acc_routing_start\": [\"Need ATM location\"], \"atm_finder_start\": [\"Need ATM location\"], \"faq_link_accounts_start\": [\"Need ATM location\"], \"get_balance_start\": [\"Need ATM location\"], \"get_transactions_start\": [\"Need ATM location\"], \"outofscope\": [\"Need ATM location\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "record",
+                    "arguments": {
+                        "acc_routing_start": [
+                            "Need ATM location"
+                        ],
+                        "atm_finder_start": [
+                            "Need ATM location"
+                        ],
+                        "faq_link_accounts_start": [
+                            "Need ATM location"
+                        ],
+                        "get_balance_start": [
+                            "Need ATM location"
+                        ],
+                        "get_transactions_start": [
+                            "Need ATM location"
+                        ],
+                        "outofscope": [
+                            "Need ATM location"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 111,
+        "output": "{\"name\": \"record\", \"parameters\": {\"acc_routing_start\": [\"What is my balance?\", \"Tell me my available balance, please\", \"What is my current available balance?\"], \"atm_finder_start\": [\"What is the balance in my account at this moment?\", \"How much money is in my account?\", \"Tell me my available balance\"], \"faq_link_accounts_start\": [\"What is my balance?\", \"Show me my balance information.\", \"Please provide my current account balance\"], \"get_balance_start\": [\"What is my balance?\", \"Show me my balance information.\", \"Please provide my current account balance\"], \"get_transactions_start\": [\"What is the balance in my account at this moment?\", \"How much money is in my account?\"], \"outofscope\": [\"What is the balance in my account at this moment?\", \"How much money is in my account?\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "record",
+                    "arguments": {
+                        "acc_routing_start": [
+                            "What is my balance?",
+                            "Tell me my available balance, please",
+                            "What is my current available balance?"
+                        ],
+                        "atm_finder_start": [
+                            "What is the balance in my account at this moment?",
+                            "How much money is in my account?",
+                            "Tell me my available balance"
+                        ],
+                        "faq_link_accounts_start": [
+                            "What is my balance?",
+                            "Show me my balance information.",
+                            "Please provide my current account balance"
+                        ],
+                        "get_balance_start": [
+                            "What is my balance?",
+                            "Show me my balance information.",
+                            "Please provide my current account balance"
+                        ],
+                        "get_transactions_start": [
+                            "What is the balance in my account at this moment?",
+                            "How much money is in my account?"
+                        ],
+                        "outofscope": [
+                            "What is the balance in my account at this moment?",
+                            "How much money is in my account?"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 112,
+        "output": "{\"name\": \"record\", \"parameters\": {\"acc_routing_start\": [\"weather\", \"weather forecast\"], \"atm_finder_start\": [\"weather\", \"weather forecast\"], \"faq_link_accounts_start\": [\"weather\", \"weather forecast\"], \"get_balance_start\": [\"weather\", \"weather forecast\"], \"get_transactions_start\": [\"weather\", \"weather forecast\"], \"outofscope\": [\"weather\", \"weather forecast\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "record",
+                    "arguments": {
+                        "acc_routing_start": [
+                            "weather",
+                            "weather forecast"
+                        ],
+                        "atm_finder_start": [
+                            "weather",
+                            "weather forecast"
+                        ],
+                        "faq_link_accounts_start": [
+                            "weather",
+                            "weather forecast"
+                        ],
+                        "get_balance_start": [
+                            "weather",
+                            "weather forecast"
+                        ],
+                        "get_transactions_start": [
+                            "weather",
+                            "weather forecast"
+                        ],
+                        "outofscope": [
+                            "weather",
+                            "weather forecast"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 113,
+        "output": "{\"name\": \"calculate_dynamic_pricing\", \"parameters\": {\"geolocation\": \"34.0522, -118.2437\", \"base_price\": 100, \"minimum_price\": 90, \"location_multiplier\": 1.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "calculate_dynamic_pricing",
+                    "arguments": {
+                        "geolocation": "34.0522, -118.2437",
+                        "base_price": 100,
+                        "minimum_price": 90,
+                        "location_multiplier": 1.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 114,
+        "output": "{\"name\": \"update_user_profile\", \"parameters\": {\"user_id\": 12345, \"profile_data\": {\"email\": \"john.doe@example.com\", \"age\": 30}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "update_user_profile",
+                    "arguments": {
+                        "user_id": 12345,
+                        "profile_data": {
+                            "email": "john.doe@example.com",
+                            "age": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 115,
+        "output": "{\"name\": \"calculate_sum\", \"parameters\": {\"number1\": 133, \"number2\": 34}}",
+        "call": [
+            {
+                "function": {
+                    "name": "calculate_sum",
+                    "arguments": {
+                        "number1": 133,
+                        "number2": 34
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 116,
+        "output": "{\"name\": \"sum_numbers\", \"parameters\": {\"numbers_list\": [133, 34]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "sum_numbers",
+                    "arguments": {
+                        "numbers_list": [
+                            133,
+                            34
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 117,
+        "output": "{\"name\": \"reverse_input\", \"parameters\": {\"input_value\": \"hi\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "reverse_input",
+                    "arguments": {
+                        "input_value": "hi"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 118,
+        "output": "{\"name\": \"get_temperature\", \"parameters\": {\"units\": \"Celsius\", \"location\": \"Hyderabad, India\", \"time\": \"null\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_temperature",
+                    "arguments": {
+                        "units": "Celsius",
+                        "location": "Hyderabad, India",
+                        "time": "null"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 119,
+        "output": "{\"name\": \"GetPrimeMinisters\", \"parameters\": {\"countries\": [\"Australia\", \"Canada\", \"India\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "GetPrimeMinisters",
+                    "arguments": {
+                        "countries": [
+                            "Australia",
+                            "Canada",
+                            "India"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 120,
+        "output": "{\"name\": \"weather.forecast\", \"parameters\": {\"location\": \"Paris, France\", \"start_date\": \"2023-04-03\", \"end_date\": \"2023-04-05\", \"temperature_unit\": \"Celsius\", \"include_precipitation\": true, \"include_wind\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "weather.forecast",
+                    "arguments": {
+                        "location": "Paris, France",
+                        "start_date": "2023-04-03",
+                        "end_date": "2023-04-05",
+                        "temperature_unit": "Celsius",
+                        "include_precipitation": true,
+                        "include_wind": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 121,
+        "output": "{\"name\": \"generate_chart\", \"parameters\": {\"data_labels\": [\"Software Engineer\", \"Graphic Designer\", \"Data Analyst\", \"Sales Manager\", \"Nurse\"], \"data_values\": [90000, 50000, 70000, 60000, 80000]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "generate_chart",
+                    "arguments": {
+                        "data_labels": [
+                            "Software Engineer",
+                            "Graphic Designer",
+                            "Data Analyst",
+                            "Sales Manager",
+                            "Nurse"
+                        ],
+                        "data_values": [
+                            90000,
+                            50000,
+                            70000,
+                            60000,
+                            80000
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 122,
+        "output": "{\"name\": \"process_data\", \"parameters\": {\"image_path\": \"image.png\", \"question\": \"generate with technically complex attention to detail a description of what you see\", \"model\": \"vikhyatk/moondream2\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "process_data",
+                    "arguments": {
+                        "image_path": "image.png",
+                        "question": "generate with technically complex attention to detail a description of what you see",
+                        "model": "vikhyatk/moondream2"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 123,
+        "output": "{\"name\": \"pipeline\", \"parameters\": {\"image_path\": \"http://www.thewowstyle.com/wp-content/uploads/2015/01/Home-Interior-Design-Hd-Wallpaper-Hd-Background-With-Simple-Staircase-And-Plasma-TV-Also-Nice-Laminate-Flooring-Ideas-With-Modern-Furniture-Interior-Minimalist-Design.jpg\", \"question\": \"How does the arrangement of furniture contribute to the minimalist design of the interior?\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "pipeline",
+                    "arguments": {
+                        "image_path": "http://www.thewowstyle.com/wp-content/uploads/2015/01/Home-Interior-Design-Hd-Wallpaper-Hd-Background-With-Simple-Staircase-And-Plasma-TV-Also-Nice-Laminate-Flooring-Ideas-With-Modern-Furniture-Interior-Minimalist-Design.jpg",
+                        "question": "How does the arrangement of furniture contribute to the minimalist design of the interior?"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 124,
+        "output": "{\"name\": \"get_tickets\", \"parameters\": {\"customer\": \"\u7ea2\u661f\u79d1\u6280\", \"status\": \"open\", \"limit\": 10}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_tickets",
+                    "arguments": {
+                        "customer": "\u7ea2\u661f\u79d1\u6280",
+                        "status": "open",
+                        "limit": 10
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 125,
+        "output": "{\"name\": \"concat_strings\", \"parameters\": {\"strings\": [\"John\", \"Doe\"], \"separator\": \" \"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "concat_strings",
+                    "arguments": {
+                        "strings": [
+                            "John",
+                            "Doe"
+                        ],
+                        "separator": " "
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 126,
+        "output": "{\"name\": \"telemetry.flowrules.interfaceInfo.get\", \"parameters\": {\"fabricName\": \"Global-Fabric\", \"nodeId\": 1200, \"podId\": 3, \"interfaceType\": \"ethernet\", \"infoType\": \"status\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "telemetry.flowrules.interfaceInfo.get",
+                    "arguments": {
+                        "fabricName": "Global-Fabric",
+                        "nodeId": 1200,
+                        "podId": 3,
+                        "interfaceType": "ethernet",
+                        "infoType": "status"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 127,
+        "output": "{\"name\": \"telemetry.flowrules.interfaceInfo.get\", \"parameters\": {\"fabricName\": \"test-de\", \"nodeId\": 5, \"podId\": 1, \"interfaceType\": \"ethernet\", \"infoType\": \"status\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "telemetry.flowrules.interfaceInfo.get",
+                    "arguments": {
+                        "fabricName": "test-de",
+                        "nodeId": 5,
+                        "podId": 1,
+                        "interfaceType": "ethernet",
+                        "infoType": "status"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 128,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://192.168.11.33/sedgeapi/v3/cisco-nir/api/api/telemetry/flowrules/nodes?fabricName=PEK-ACI&version=3.1.0\", \"fabricName\": \"PEK-ACI\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://192.168.11.33/sedgeapi/v3/cisco-nir/api/api/telemetry/flowrules/nodes?fabricName=PEK-ACI&version=3.1.0",
+                        "fabricName": "PEK-ACI"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 129,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://3.321.3232.2/sedgeapi/v1/cisco-nir/api/api/telemetry/flowrules/nodes?fabricName=fab-ed\", \"fabricName\": \"fab-ed\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://3.321.3232.2/sedgeapi/v1/cisco-nir/api/api/telemetry/flowrules/nodes?fabricName=fab-ed",
+                        "fabricName": "fab-ed"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 130,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://192.120.45.67/sedgeapi/v1/cisco-nir/api/api/telemetry/flowrules/interfaceInfo\", \"params\": {\"fabricName\": \"Network1\", \"nodeId\": 12, \"podId\": 10, \"interfaceType\": \"ethernet\", \"infoType\": \"statistics\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://192.120.45.67/sedgeapi/v1/cisco-nir/api/api/telemetry/flowrules/interfaceInfo",
+                        "params": {
+                            "fabricName": "Network1",
+                            "nodeId": 12,
+                            "podId": 10,
+                            "interfaceType": "ethernet",
+                            "infoType": "statistics"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 131,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://192.120.45.67/sedgeapi/v1/cisco-nir/api/api/telemetry/flowrules/interfaceInfo\", \"params\": {\"fabricName\": \"Network1\", \"nodeId\": 12, \"podId\": 10, \"interfaceType\": \"ethernet\", \"infoType\": \"Speed\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://192.120.45.67/sedgeapi/v1/cisco-nir/api/api/telemetry/flowrules/interfaceInfo",
+                        "params": {
+                            "fabricName": "Network1",
+                            "nodeId": 12,
+                            "podId": 10,
+                            "interfaceType": "ethernet",
+                            "infoType": "Speed"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 132,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://example.com/device-connector-versions.json\", \"params\": {}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://example.com/device-connector-versions.json",
+                        "params": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 133,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://api.example.com/recommendations\", \"params\": {\"advisoryId\": \"dac\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://api.example.com/recommendations",
+                        "params": {
+                            "advisoryId": "dac"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 134,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://api.insights.com/groups\", \"params\": {\"query\": \"node\", \"limit\": 20, \"sort\": \"desc\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://api.insights.com/groups",
+                        "params": {
+                            "query": "node",
+                            "limit": 20,
+                            "sort": "desc"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 135,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://api.example.com/v1/data\", \"params\": {\"query\": \"limit=50\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://api.example.com/v1/data",
+                        "params": {
+                            "query": "limit=50"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 136,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://192.168.1.1/api/v1/applications/topologies\", \"params\": {\"filter\": \"accountName:AcmeCorp AND applicationName:SalesApp\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://192.168.1.1/api/v1/applications/topologies",
+                        "params": {
+                            "filter": "accountName:AcmeCorp AND applicationName:SalesApp"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 137,
+        "output": "{\"name\": \"reschedule\", \"parameters\": {\"identifier\": \"Alice-One-one-One\", \"dateOrTime\": \"2023-11-01T22:00:00\", \"timezone\": \"Europe\\/London\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "reschedule",
+                    "arguments": {
+                        "identifier": "Alice-One-one-One",
+                        "dateOrTime": "2023-11-01T22:00:00",
+                        "timezone": "Europe/London"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 138,
+        "output": "{\"name\": \"reschedule\", \"parameters\": {\"identifier\": \"Bob-123\", \"dateOrTime\": \"2023-11-01T18:00:00Z\", \"timezone\": \"Europe\\/London\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "reschedule",
+                    "arguments": {
+                        "identifier": "Bob-123",
+                        "dateOrTime": "2023-11-01T18:00:00Z",
+                        "timezone": "Europe/London"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 139,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"url\": \"https://192.168.1.1/sedgeapi/v1/cisco-nir/api/api/v1/anomalies/summary\", \"params\": {\"insightsGroup\": \"network222\", \"fabric\": \"network222\"}}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "url": "https://192.168.1.1/sedgeapi/v1/cisco-nir/api/api/v1/anomalies/summary",
+                        "params": {
+                            "insightsGroup": "network222",
+                            "fabric": "network222"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 140,
+        "output": "{\"name\": \"greet_partner\", \"parameters\": {\"user_name\": \"Emily\", \"partner_name\": \"Jeff\", \"relationship\": \"husband\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "greet_partner",
+                    "arguments": {
+                        "user_name": "Emily",
+                        "partner_name": "Jeff",
+                        "relationship": "husband"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 141,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"docker --version\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "docker --version",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 142,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"dir Desktop\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "dir Desktop",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 143,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"docker ps\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "docker ps"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 144,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"taskkill /im firefox.exe /f\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "taskkill /im firefox.exe /f",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 145,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"ls -l | grep -i 'name'\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "ls -l | grep -i 'name'",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 146,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"start https://hf-mirror.com\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "start https://hf-mirror.com",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 147,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"taskkill /im timer.exe /f\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "taskkill /im timer.exe /f"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 148,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"file in c\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "file in c",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 149,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"echo 'Hello, World!'\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "echo 'Hello, World!'"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 150,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"shutdown /s /t 0\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "shutdown /s /t 0",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 151,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"netsh wlan disconnect\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "netsh wlan disconnect",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 152,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"dir D:\\\\ && echo testing.txt\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "dir D:\\ && echo testing.txt",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 153,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"del /s /f %userprofile%\\\\Desktop\\\\putty.lnk\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "del /s /f %userprofile%\\Desktop\\putty.lnk",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 154,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"start https://www.youtube.com/watch?v=dQw4w9WgXcQ\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "start https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 155,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"date\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "date"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 156,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"dir /b /a-d c:\\\\\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "dir /b /a-d c:\\",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 157,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"echo %time%\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "echo %time%",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 158,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"taskkill /im code.exe /t\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "taskkill /im code.exe /t",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 159,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"timeout 10\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "timeout 10",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 160,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"start microsoft.windows.camera\", \"unit\": \"seconds\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "start microsoft.windows.camera",
+                        "unit": "seconds"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 161,
+        "output": "{\"name\": \"get_items\", \"parameters\": {\"items\": [\"blue square\", \"red square\", \"green square\", \"yellow square\", \"Superman logo\", \"Iron Man logo\", \"Hulk logo\", \"Batman logo\", \"Fist\", \"Bat\", \"Face mask\", \"Outline\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_items",
+                    "arguments": {
+                        "items": [
+                            "blue square",
+                            "red square",
+                            "green square",
+                            "yellow square",
+                            "Superman logo",
+                            "Iron Man logo",
+                            "Hulk logo",
+                            "Batman logo",
+                            "Fist",
+                            "Bat",
+                            "Face mask",
+                            "Outline"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 162,
+        "output": "{\"name\": \"get_items\", \"parameters\": {\"items\": [\"Red and blue circle logo.\", \"Red and yellow circle logo.\", \"Green circle logo.\", \"Black circle logo.\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_items",
+                    "arguments": {
+                        "items": [
+                            "Red and blue circle logo.",
+                            "Red and yellow circle logo.",
+                            "Green circle logo.",
+                            "Black circle logo."
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 163,
+        "output": "{\"name\": \"get_items\", \"parameters\": {\"items\": [\"red logo\", \"yellow rectangle\", \"white text\", \"Lego characters\", \"movie title\", \"release date\", \"actor names\"]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_items",
+                    "arguments": {
+                        "items": [
+                            "red logo",
+                            "yellow rectangle",
+                            "white text",
+                            "Lego characters",
+                            "movie title",
+                            "release date",
+                            "actor names"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 164,
+        "output": "{\"name\": \"get_copyright_info\", \"parameters\": {\"copyright_content\": \"The Coca-Cola logo, registered trademark of The Coca-Cola Company\", \"copyright_holder\": \"The Coca-Cola Company\", \"confidence_score\": 100.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_copyright_info",
+                    "arguments": {
+                        "copyright_content": "The Coca-Cola logo, registered trademark of The Coca-Cola Company",
+                        "copyright_holder": "The Coca-Cola Company",
+                        "confidence_score": 100.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 165,
+        "output": "{\"name\": \"extractor.extract_information\", \"parameters\": {\"data\": [{\"name\": \"\u674e\u96f7\", \"age\": 18, \"name\": \"\u674e\u4e3d\", \"age\": 15}, {\"name\": \"\u674e\u4e3d\", \"age\": 18, \"name\": \"\u674e\u96f7\", \"age\": 18}, {\"name\": \"\u674e\u96f7\", \"age\": 18, \"name\": \"\u674e\u4e3d\", \"age\": 15}]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "extractor.extract_information",
+                    "arguments": {
+                        "data": [
+                            {
+                                "name": "\u674e\u4e3d",
+                                "age": 15
+                            },
+                            {
+                                "name": "\u674e\u96f7",
+                                "age": 18
+                            },
+                            {
+                                "name": "\u674e\u4e3d",
+                                "age": 15
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 166,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"echo %time%\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "echo %time%"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 167,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"cmd /c tasklist /FI \\\"IMAGENAME eq Code.exe\\\"\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "cmd /c tasklist /FI \"IMAGENAME eq Code.exe\""
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 168,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"docker start\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "docker start"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 169,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"python d:/playground/pc_controller/test.py\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "python d:/playground/pc_controller/test.py"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 170,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"list c drive\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "list c drive"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 171,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"echo %date%\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "echo %date%"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 172,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"docker ps\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "docker ps"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 173,
+        "output": "{\"name\": \"cmd_controller.execute\", \"parameters\": {\"command\": \"start calc\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "cmd_controller.execute",
+                    "arguments": {
+                        "command": "start calc"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 174,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 2}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 2
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 175,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 2, \"unit\": \"hour\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 2,
+                        "unit": "hour"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 176,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 1, \"unit\": 1}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 1,
+                        "unit": 1
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 177,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 1, \"unit\": 1}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 1,
+                        "unit": 1
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 178,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 1, \"unit\": 1}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 1,
+                        "unit": 1
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 179,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 2, \"province_id\": 2}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 2,
+                        "province_id": 2
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 180,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 1, \"province_id\": 1, \"rating\": 4}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 1,
+                        "rating": 4
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 181,
+        "output": "{\"name\": \"get_service_id\", \"parameters\": {\"service_id\": 1, \"province_id\": 1, \"district_name\": \"Chatuchak\", \"rating\": 4.5}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_id",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 1,
+                        "district_name": "Chatuchak",
+                        "rating": 4.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 182,
+        "output": "{\"name\": \"get_service_providers\", \"parameters\": {\"service_id\": 1, \"province_id\": 1, \"rating\": 4.5}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_providers",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 1,
+                        "rating": 4.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 183,
+        "output": "{\"name\": \"getDataForProfessional\", \"parameters\": {\"province_id\": 1, \"service_id\": 1}}",
+        "call": [
+            {
+                "function": {
+                    "name": "getDataForProfessional",
+                    "arguments": {
+                        "province_id": 1,
+                        "service_id": 1
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 184,
+        "output": "{\"name\": \"getDataForProfessional\", \"parameters\": {\"service_id\": 1, \"province_id\": 1, \"rating\": 4.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "getDataForProfessional",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 1,
+                        "rating": 4.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 185,
+        "output": "{\"name\": \"get_service_providers\", \"parameters\": {\"service_id\": 1, \"province_id\": 3, \"start_available_date\": \"2023-09-30T00:00:00.000Z\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_providers",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 3,
+                        "start_available_date": "2023-09-30T00:00:00.000Z"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 186,
+        "output": "{\"name\": \"get_service_providers\", \"parameters\": {\"service_id\": 1, \"province_id\": 3, \"start_available_date\": \"2024-12-03 16:00:00\", \"end_available_date\": \"2024-12-03 18:00:00\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_providers",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 3,
+                        "start_available_date": "2024-12-03 16:00:00",
+                        "end_available_date": "2024-12-03 18:00:00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 187,
+        "output": "{\"name\": \"get_service_providers\", \"parameters\": {\"service_id\": 1, \"province_id\": 3, \"start_available_date\": \"2024-12-03\", \"end_available_date\": \"2024-12-03\", \"has_late_check_in\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "get_service_providers",
+                    "arguments": {
+                        "service_id": 1,
+                        "province_id": 3,
+                        "start_available_date": "2024-12-03",
+                        "end_available_date": "2024-12-03",
+                        "has_late_check_in": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 188,
+        "output": "{\"name\": \"getDataForProfessional\", \"parameters\": {\"service_id\": 2, \"province_id\": 3, \"district_name\": \"Sankampang\", \"sub_district_name\": \"Ton Pao\", \"start_available_date\": \"2020-01-01\", \"end_available_date\": \"2022-12-31\", \"has_late_check_in\": false, \"rating\": 4.5}}",
+        "call": [
+            {
+                "function": {
+                    "name": "getDataForProfessional",
+                    "arguments": {
+                        "service_id": 2,
+                        "province_id": 3,
+                        "district_name": "Sankampang",
+                        "sub_district_name": "Ton Pao",
+                        "start_available_date": "2020-01-01",
+                        "end_available_date": "2022-12-31",
+                        "has_late_check_in": false,
+                        "rating": 4.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 189,
+        "output": "{\"name\": \"extractor.extract_information\", \"parameters\": {\"data\": [{\"age\": 42, \"name\": \"Chester\", \"nick_name\": \"Chester\"}, {\"age\": 43, \"name\": \"Jane\", \"nick_name\": \"Jane\"}]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "extractor.extract_information",
+                    "arguments": {
+                        "data": [
+                            {
+                                "age": 42,
+                                "name": "Chester",
+                                "nick_name": "Chester"
+                            },
+                            {
+                                "age": 43,
+                                "name": "Jane",
+                                "nick_name": "Jane"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 190,
+        "output": "{\"name\": \"raptor.mpn.specs\", \"parameters\": {\"identifier\": \"ACHD\", \"search_type\": \"MPN\", \"include_images\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "raptor.mpn.specs",
+                    "arguments": {
+                        "identifier": "ACHD",
+                        "search_type": "MPN",
+                        "include_images": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 191,
+        "output": "{\"name\": \"raptor.mpn.specs\", \"parameters\": {\"identifier\": \"3pak7\", \"search_type\": \"MPN\", \"include_images\": false}}",
+        "call": [
+            {
+                "function": {
+                    "name": "raptor.mpn.specs",
+                    "arguments": {
+                        "identifier": "3pak7",
+                        "search_type": "MPN",
+                        "include_images": false
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 192,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Pacifica\", \"date\": \"2023-04-11\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Pacifica",
+                        "date": "2023-04-11"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 193,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"New York\", \"date\": \"2023-03-08\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "New York",
+                        "date": "2023-03-08"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 194,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Martinez\", \"date\": \"2023-04-25\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Martinez",
+                        "date": "2023-04-25"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 195,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Palo Alto\", \"date\": \"2023-04-25\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Palo Alto",
+                        "date": "2023-04-25"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 196,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Alameda\", \"date\": \"2023-04-25\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Alameda",
+                        "date": "2023-04-25"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 197,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Stinson Beach\", \"date\": \"2023-04-05\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Stinson Beach",
+                        "date": "2023-04-05"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 198,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Healdsburg\", \"date\": \"2023-03-02\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Healdsburg",
+                        "date": "2023-03-02"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 199,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Marshall, MN\", \"date\": \"2023-03-05\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Marshall, MN",
+                        "date": "2023-03-05"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 200,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Fremont\", \"date\": \"2023-03-01\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Fremont",
+                        "date": "2023-03-01"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 201,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Campbell\", \"date\": \"2023-03-04\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Campbell",
+                        "date": "2023-03-04"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 202,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Foster City\", \"date\": \"2023-04-25\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Foster City",
+                        "date": "2023-04-25"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 203,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Washington, DC\", \"date\": \"2023-03-01\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Washington, DC",
+                        "date": "2023-03-01"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 204,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Rutherford, NJ\", \"date\": \"2023-04-22\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Rutherford, NJ",
+                        "date": "2023-04-22"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 205,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Berkeley\", \"date\": \"2023-04-29\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Berkeley",
+                        "date": "2023-04-29"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 206,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"London\", \"date\": \"2023-03-05\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "London",
+                        "date": "2023-03-05"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 207,
+        "output": "{\"name\": \"Weather_1_GetWeather\", \"parameters\": {\"city\": \"Sacramento\", \"date\": \"2023-04-22\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Weather_1_GetWeather",
+                    "arguments": {
+                        "city": "Sacramento",
+                        "date": "2023-04-22"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 208,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Quentin Tarantino\", \"genre\": \"Action\", \"cast\": \"Duane Whitaker\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Quentin Tarantino",
+                        "genre": "Action",
+                        "cast": "Duane Whitaker"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 209,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"David Leitch\", \"genre\": \"Action\", \"cast\": \"Lori Pelenise Tuisano\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "David Leitch",
+                        "genre": "Action",
+                        "cast": "Lori Pelenise Tuisano"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 210,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"\", \"genre\": \"Drama\", \"cast\": \"\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "",
+                        "genre": "Drama",
+                        "cast": ""
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 211,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"James Corden\", \"genre\": \"Comedy\", \"cast\": \"James Corden\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "James Corden",
+                        "genre": "Comedy",
+                        "cast": "James Corden"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 212,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Edgar Wright\", \"genre\": \"Comedy\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Edgar Wright",
+                        "genre": "Comedy",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 213,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Tim Burton\", \"genre\": \"Offbeat\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Tim Burton",
+                        "genre": "Offbeat",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 214,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Nitesh Tiwari\", \"genre\": \"Comedy\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Nitesh Tiwari",
+                        "genre": "Comedy",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 215,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"\", \"genre\": \"Fantasy\", \"cast\": \"\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "",
+                        "genre": "Fantasy",
+                        "cast": ""
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 216,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"David Leitch\", \"genre\": \"Action\", \"cast\": \"Alex King\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "David Leitch",
+                        "genre": "Action",
+                        "cast": "Alex King"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 217,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Nitesh Tiwari\", \"genre\": \"Action\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Nitesh Tiwari",
+                        "genre": "Action",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 218,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Paul Downs Colaizzo\", \"genre\": \"dontcare\", \"cast\": \"Michaela Watkins\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Paul Downs Colaizzo",
+                        "genre": "dontcare",
+                        "cast": "Michaela Watkins"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 219,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Simon Curtis\", \"genre\": \"dontcare\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Simon Curtis",
+                        "genre": "dontcare",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 220,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Alexander Mackendrick\", \"genre\": \"Thriller\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Alexander Mackendrick",
+                        "genre": "Thriller",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 221,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"James Gray\", \"genre\": \"dontcare\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "James Gray",
+                        "genre": "dontcare",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 222,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Thurop Van Orman\", \"genre\": \"dontcare\", \"cast\": \"Sterling K. Brown\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Thurop Van Orman",
+                        "genre": "dontcare",
+                        "cast": "Sterling K. Brown"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 223,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"dontcare\", \"genre\": \"Fantasy\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "dontcare",
+                        "genre": "Fantasy",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 224,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Tim Burton\", \"genre\": \"Offbeat\", \"cast\": \"Johnny Depp\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Tim Burton",
+                        "genre": "Offbeat",
+                        "cast": "Johnny Depp"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 225,
+        "output": "{\"name\": \"Movies_3_FindMovies\", \"parameters\": {\"directed_by\": \"Kirill Mikhanovsky\", \"genre\": \"Comedy-drama\", \"cast\": \"dontcare\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "Movies_3_FindMovies",
+                    "arguments": {
+                        "directed_by": "Kirill Mikhanovsky",
+                        "genre": "Comedy-drama",
+                        "cast": "dontcare"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 226,
+        "output": "{\"name\": \"text_to_speech.convert\", \"parameters\": {\"text\": \"I am a pretty girl\", \"language\": \"es-ES\", \"gender\": \"female\", \"format\": \"wav\", \"speed\": 1.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "text_to_speech.convert",
+                    "arguments": {
+                        "text": "I am a pretty girl",
+                        "language": "es-ES",
+                        "gender": "female",
+                        "format": "wav",
+                        "speed": 1.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 227,
+        "output": "{\"name\": \"text_to_speech.convert\", \"parameters\": {\"text\": \"\\u6211\\u559c\\u6b22\\u5403\\u82f9\\u679c\", \"language\": \"zh-CN\", \"gender\": \"male\", \"format\": \"wav\", \"speed\": 1.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "text_to_speech.convert",
+                    "arguments": {
+                        "text": "\u6211\u559c\u6b22\u5403\u82f9\u679c",
+                        "language": "zh-CN",
+                        "gender": "male",
+                        "format": "wav",
+                        "speed": 1.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 228,
+        "output": "{\"name\": \"text_to_speech.convert\", \"parameters\": {\"text\": \"I am a pretty girl\", \"language\": \"en-US\", \"gender\": \"female\", \"speed\": 1.0}}",
+        "call": [
+            {
+                "function": {
+                    "name": "text_to_speech.convert",
+                    "arguments": {
+                        "text": "I am a pretty girl",
+                        "language": "en-US",
+                        "gender": "female",
+                        "speed": 1.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 229,
+        "output": "{\"name\": \"requests.get\", \"parameters\": {\"anchor\": \"user\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "requests.get",
+                    "arguments": {
+                        "anchor": "user"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 230,
+        "output": "{\"name\": \"play_song\", \"parameters\": {\"song_id\": \"wjeiruhuq_roar\", \"quality\": \"high\", \"device_id\": \"None\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_song",
+                    "arguments": {
+                        "song_id": "wjeiruhuq_roar",
+                        "quality": "high",
+                        "device_id": "None"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 231,
+        "output": "{\"name\": \"reschedule_event\", \"parameters\": {\"event_identifier\": \"456123\", \"new_datetime\": \"2022-10-27T16:30:00Z\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "reschedule_event",
+                    "arguments": {
+                        "event_identifier": "456123",
+                        "new_datetime": "2022-10-27T16:30:00Z"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 232,
+        "output": "{\"name\": \"reschedule_event\", \"parameters\": {\"event_identifier\": \"med123\", \"new_datetime\": \"2021-04-15T13:45:00Z\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "reschedule_event",
+                    "arguments": {
+                        "event_identifier": "med123",
+                        "new_datetime": "2021-04-15T13:45:00Z"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 233,
+        "output": "{\"name\": \"book_flight\", \"parameters\": {\"departure_location\": \"Paris, France\", \"departure_time\": \"12/03/2023 15:00\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "book_flight",
+                    "arguments": {
+                        "departure_location": "Paris, France",
+                        "departure_time": "12/03/2023 15:00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 234,
+        "output": "{\"name\": \"book_flight\", \"parameters\": {\"departure_location\": \"New York, NY\", \"departure_time\": \"20/06/2022 17:00\", \"return_time\": \"null\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "book_flight",
+                    "arguments": {
+                        "departure_location": "New York, NY",
+                        "departure_time": "20/06/2022 17:00",
+                        "return_time": "null"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 235,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"Friends by Marshmello\", \"shuffle\": false, \"volume\": 50}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "Friends by Marshmello",
+                        "shuffle": false,
+                        "volume": 50
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 236,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"Dil Nu Maninder Buttar\", \"shuffle\": false, \"volume\": 50}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "Dil Nu Maninder Buttar",
+                        "shuffle": false,
+                        "volume": 50
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 237,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"wrecking ball by Miley Cyrus\", \"device_id\": \"null\", \"play\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "wrecking ball by Miley Cyrus",
+                        "device_id": "null",
+                        "play": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 238,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"Dil Nu Maninder Buttar\", \"device_id\": \"null\", \"play\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "Dil Nu Maninder Buttar",
+                        "device_id": "null",
+                        "play": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 239,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"Shape of You\", \"device_id\": \"null\", \"play\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "Shape of You",
+                        "device_id": "null",
+                        "play": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 240,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"Baby Shark\", \"device_id\": \"null\", \"play\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "Baby Shark",
+                        "device_id": "null",
+                        "play": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 241,
+        "output": "{\"name\": \"play_spotify_song\", \"parameters\": {\"query\": \"Johnny Johnny Yes Papa\", \"device_id\": \"null\", \"play\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "play_spotify_song",
+                    "arguments": {
+                        "query": "Johnny Johnny Yes Papa",
+                        "device_id": "null",
+                        "play": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 242,
+        "output": "{\"name\": \"set_volume\", \"parameters\": {\"volume\": 20}}",
+        "call": [
+            {
+                "function": {
+                    "name": "set_volume",
+                    "arguments": {
+                        "volume": 20
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 243,
+        "output": "{\"name\": \"set_volume\", \"parameters\": {\"volume\": 30}}",
+        "call": [
+            {
+                "function": {
+                    "name": "set_volume",
+                    "arguments": {
+                        "volume": 30
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 244,
+        "output": "{\"name\": \"set_volume\", \"parameters\": {\"volume\": 70}}",
+        "call": [
+            {
+                "function": {
+                    "name": "set_volume",
+                    "arguments": {
+                        "volume": 70
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 245,
+        "output": "{\"name\": \"book_flight\", \"parameters\": {\"departure_location\": \"JFK\", \"departure_date\": \"16/03/2024\", \"departure_time\": \"14:00\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "book_flight",
+                    "arguments": {
+                        "departure_location": "JFK",
+                        "departure_date": "16/03/2024",
+                        "departure_time": "14:00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 246,
+        "output": "{\"name\": \"book_flight\", \"parameters\": {\"departure_location\": \"New York\", \"departure_time\": \"15/03/2024\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "book_flight",
+                    "arguments": {
+                        "departure_location": "New York",
+                        "departure_time": "15/03/2024"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 247,
+        "output": "{\"name\": \"version_api.VersionApi.get_version\", \"parameters\": {}}",
+        "call": [
+            {
+                "function": {
+                    "name": "version_api.VersionApi.get_version",
+                    "arguments": {}
+                }
+            }
+        ]
+    },
+    {
+        "id": 248,
+        "output": "{\"name\": \"acl_api.AclApi.retrieve_projects\", \"parameters\": {\"uuid\": \"12\", \"excludeInactive\": false, \"onlyRoot\": true}}",
+        "call": [
+            {
+                "function": {
+                    "name": "acl_api.AclApi.retrieve_projects",
+                    "arguments": {
+                        "uuid": "12",
+                        "excludeInactive": false,
+                        "onlyRoot": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 249,
+        "output": "{\"name\": \"chat_with_friend\", \"parameters\": {\"user_message\": \"Hey bunny, How are you doing\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "chat_with_friend",
+                    "arguments": {
+                        "user_message": "Hey bunny, How are you doing"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 250,
+        "output": "{\"name\": \"uber.eat.order\", \"parameters\": {\"restaurants\": \"McDonald's\", \"items\": [\"Big Mac\", \"Big Mac\", \"McFlurry\"], \"quantities\": [1, 1, 1]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.eat.order",
+                    "arguments": {
+                        "restaurants": "McDonald's",
+                        "items": [
+                            "Big Mac",
+                            "Big Mac",
+                            "McFlurry"
+                        ],
+                        "quantities": [
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 251,
+        "output": "{\"name\": \"flight.status.check\", \"parameters\": {\"flight_id\": \"6E123\", \"passenger_name\": \"Karan\", \"ticket_number\": \"IND4567\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "flight.status.check",
+                    "arguments": {
+                        "flight_id": "6E123",
+                        "passenger_name": "Karan",
+                        "ticket_number": "IND4567"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 252,
+        "output": "{\"name\": \"flight.status.check\", \"parameters\": {\"airlines\": \"Indigo\", \"person_name\": \"Karan\", \"ticket_number\": \"IND4567\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "flight.status.check",
+                    "arguments": {
+                        "airlines": "Indigo",
+                        "person_name": "Karan",
+                        "ticket_number": "IND4567"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 253,
+        "output": "{\"name\": \"uber.eat.order\", \"parameters\": {\"restaurants\": \"McDonald's\", \"items\": [\"burger\", \"chicken wings\"], \"quantities\": [5, 6]}}",
+        "call": [
+            {
+                "function": {
+                    "name": "uber.eat.order",
+                    "arguments": {
+                        "restaurants": "McDonald's",
+                        "items": [
+                            "burger",
+                            "chicken wings"
+                        ],
+                        "quantities": [
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 254,
+        "output": "{\"name\": \"user.mandates\", \"parameters\": {\"user_id\": \"U123\", \"status\": \"pending\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "user.mandates",
+                    "arguments": {
+                        "user_id": "U123",
+                        "status": "pending"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 255,
+        "output": "{\"name\": \"user.mandates\", \"parameters\": {\"user_id\": \"U123456\", \"status\": \"active\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "user.mandates",
+                    "arguments": {
+                        "user_id": "U123456",
+                        "status": "active"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 256,
+        "output": "{\"name\": \"answer_question\", \"parameters\": {\"statement\": \"check the status of my complaint\", \"urgency\": \"low\", \"language\": \"en\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "answer_question",
+                    "arguments": {
+                        "statement": "check the status of my complaint",
+                        "urgency": "low",
+                        "language": "en"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 257,
+        "output": "{\"name\": \"answer_question\", \"parameters\": {\"statement\": \"What is the minimum package arrival time?\", \"urgency\": \"low\", \"language\": \"en\"}}",
+        "call": [
+            {
+                "function": {
+                    "name": "answer_question",
+                    "arguments": {
+                        "statement": "What is the minimum package arrival time?",
+                        "urgency": "low",
+                        "language": "en"
+                    }
+                }
+            }
+        ]
+    }
+]
