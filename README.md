@@ -2,6 +2,16 @@
 
 The evaluation script is modified based on the MLC-LLM bench and BFCL ast checker. The script uses the Structural Tag API to test the tool-calling accuracy and efficiency
 
+## Fast test for efficiency with SGLang backend
+
+Run the script:
+```bash
+bash eff.sh
+```
+
+The bench data will be in `./src/data/efficiecy` directory. You can modify the parameters in the `eff.sh` file.
+
+
 ## Test the accuracy
 
 First launch the server.
@@ -24,12 +34,12 @@ python accuracy.py --model Llama-3.1-8B-Instruct \
 [--use-stag] [--force-call]
 ```
 
-The raw data will be in `./data/accuracy_raw` directory. Finally process the raw data:
+The raw data will be in `./src/data/accuracy_raw` directory. Finally process the raw data:
 ```bash
 python check.py --dataset ALL --model ALL --dataset-path ./data/dataset \
 --output-root ./data/accuracy_raw --final-root ./data/accuracy_summary
 ```
-The detailed pictures will also be in `./data/accuracy_summary` directory. 
+The detailed pictures will also be in `./src/data/accuracy_summary` directory. 
 
 Note: you may need to modify `SUPPORTED_MODEL` and `SUPPORTED_DATASET` in `check.py`, as well as `models` and  `datasets` in the draw scripts accoring to the specific cases.
 
@@ -55,7 +65,7 @@ python efficiency.py --model Llama-3.1-8B-Instruct \
 --stream [--use-stag]
 ```
 
-The bench data will be in `./data/efficiecy` directory. 
+The bench data will be in `./src/data/efficiecy` directory. 
 
 
 Note: you may need to modify `models` and  `datasets`, as well as the desired metrics in `query_to_title` in the draw scripts accoring to the specific cases.
