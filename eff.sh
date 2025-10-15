@@ -3,14 +3,14 @@
 # Define variables for easier modification
 # =================================================
 # NOTE: MODIFY THESE VARIABLES AS NEEDED
-MODEL_PATH="/raid/catalyst/models/Llama-3.2-1B-Instruct"
+MODEL_PATH="/dist/Llama-3.2-1B-Instruct"
 MODEL_NAME="Llama-3.2-1B-Instruct"
 HOST="127.0.0.1"
-PORT="30020"
+PORT="30000"
 DATASET="BFCL_v3_live_multiple"
 DATASET_PATH="./data/dataset"
 NUM_GPUS=1
-NUM_REQUESTS=100
+NUM_REQUESTS=1052
 BATCH_SIZE=128
 OUTPUT_DIR="./data/efficiecy"
 TEMP=0.001
