@@ -270,24 +270,35 @@ class GorillaDataset(Dataset):  # pylint: disable=too-few-public-methods
                     response_format = {
                         "type": "structural_tag",
                         "format": {
-                            "type": "triggered_tags",
-                            "triggers": ["<tool_call>"],
-                            "tags": [
+                            "type": "sequence",
+                            "elements": [
                                 {
-                                    "begin": '<tool_call>\n{{\"name\": \"{func_name}\", \"arguments\": '.format(func_name=tool["function"]["name"]),
-                                    "content": {
-                                        "type": "json_schema", 
-                                        "json_schema": {
-                                                "properties": tool["function"]["parameters"]["properties"],
-                                                "required": tool["function"]["parameters"]["required"],
-                                                "type": tool["function"]["parameters"]["type"],
-                                        },
-                                    },
-                                    "end": "}\n</tool_call>",
-                                } for tool in entry["tool"]
-                            ],
-                            "stop_after_first": self.force_call,
-                            # "at_least_one": self.force_call,
+                                    "type": "tag",
+                                    "begin": "<think>\n",
+                                    "content": {"type": "any_text"},
+                                    "end": "\n</think>\n",
+                                },
+                                {
+                                    "type": "triggered_tags",
+                                    "triggers": ["\n<tool_call>"],
+                                    "tags": [
+                                        {
+                                            "begin": '\n<tool_call>\n{{\"name\": \"{func_name}\", \"arguments\": '.format(func_name=tool["function"]["name"]),
+                                            "content": {
+                                                "type": "json_schema", 
+                                                "json_schema": {
+                                                        "properties": tool["function"]["parameters"]["properties"],
+                                                        "required": tool["function"]["parameters"]["required"],
+                                                        "type": tool["function"]["parameters"]["type"],
+                                                },
+                                            },
+                                            "end": "}\n</tool_call>",
+                                        } for tool in entry["tool"]
+                                    ],
+                                    "stop_after_first": self.force_call,
+                                    "at_least_one": self.force_call,
+                                }
+                            ]
                         },
                     }
                 elif "Llama" in self.model:
