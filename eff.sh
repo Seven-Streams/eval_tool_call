@@ -25,7 +25,8 @@ python -m sglang.launch_server \
   --model-path "${MODEL_PATH}" \
   --host "${HOST}" \
   --port "${PORT}" \
-  --disable-radix-cache  &
+  --disable-radix-cache \
+  --enable-torch-compile &
 
 # Get the process ID of the background server process
 SERVER_PID=$!
