@@ -422,117 +422,123 @@ def generate_BFCL_dataset(
         )
         output_tools.append(tools)
         
-        if stag_style == "none":
-            extra_bodies.append({})
-        else:
-            if stag_style == "Llama3":
-                response_format = {
-                    "type": "structural_tag",
-                    "format": {
-                        "type": "triggered_tags",
-                        "triggers": ["{\"name\":"],
-                        "tags": [
+        if apply_chat_template:
+            if stag_style == "none":
+                extra_bodies.append({})
+            else:
+                if stag_style == "Llama3":
+                    response_format = {
+                        "type": "structural_tag",
+                        "format": {
+                            "type": "triggered_tags",
+                            "triggers": ["{\"name\":"],
+                            "tags": [
+                                {
+                                    "begin": "{{\"name\": \"{func_name}\", \"parameters\": ".format(func_name=tool["function"]["name"]),
+                                    "content": {
+                                        "type": "json_schema", 
+                                        "json_schema": {
+                                                "properties": tool["function"]["parameters"]["properties"],
+                                                "required": tool["function"]["parameters"]["required"],
+                                                "type": tool["function"]["parameters"]["type"],
+                                        },
+                                    },
+                                    "end": "}",
+                                } for tool in tools
+                            ],
+                        },
+                }
+                elif stag_style == "Qwen3":
+                    response_format = {
+                        "type": "structural_tag",
+                        "format": {
+                            "type": "sequence",
+                            "elements": [
+                                {
+                                    "type": "tag",
+                                    "begin": "<think>\n",
+                                    "content": {"type": "any_text"},
+                                    "end": "\n</think>\n",
+                                },
+                                {
+                                    "type": "triggered_tags",
+                                    "triggers": ["\n<tool_call>"],
+                                    "tags": [
+                                        {
+                                            "begin": '\n<tool_call>\n{{\"name\": \"{func_name}\", \"arguments\": '.format(func_name=tool["function"]["name"]),
+                                            "content": {
+                                                "type": "json_schema", 
+                                                "json_schema": {
+                                                        "properties": tool["function"]["parameters"]["properties"],
+                                                        "required": tool["function"]["parameters"]["required"],
+                                                        "type": tool["function"]["parameters"]["type"],
+                                                },
+                                            },
+                                            "end": "}\n</tool_call>",
+                                        } for tool in tools
+                                    ],
+                                }
+                            ]
+                        },
+                    }
+                elif stag_style == "gpt-oss":        
+                    def from_builtin_tool_to_tag(tool) -> list[dict]:
+                        tag = [
                             {
-                                "begin": "{{\"name\": \"{func_name}\", \"parameters\": ".format(func_name=tool["function"]["name"]),
+                                "begin": f"<|channel|>commentary to=functions.{tool["function"]["name"]} <|constrain|>json<|message|>",
                                 "content": {
-                                    "type": "json_schema", 
-                                    "json_schema": {
+                                        "type": "json_schema", 
+                                        "json_schema": {
                                             "properties": tool["function"]["parameters"]["properties"],
                                             "required": tool["function"]["parameters"]["required"],
                                             "type": tool["function"]["parameters"]["type"],
-                                    },
-                                },
-                                "end": "}",
-                            } for tool in tools
-                        ],
-                    },
-               }
-            elif stag_style == "Qwen3":
-                response_format = {
-                    "type": "structural_tag",
-                    "format": {
-                        "type": "sequence",
-                        "elements": [
-                            {
-                                "type": "tag",
-                                "begin": "<think>\n",
-                                "content": {"type": "any_text"},
-                                "end": "\n</think>\n",
-                            },
-                            {
-                                "type": "triggered_tags",
-                                "triggers": ["\n<tool_call>"],
-                                "tags": [
-                                    {
-                                        "begin": '\n<tool_call>\n{{\"name\": \"{func_name}\", \"arguments\": '.format(func_name=tool["function"]["name"]),
-                                        "content": {
-                                            "type": "json_schema", 
-                                            "json_schema": {
-                                                    "properties": tool["function"]["parameters"]["properties"],
-                                                    "required": tool["function"]["parameters"]["required"],
-                                                    "type": tool["function"]["parameters"]["type"],
-                                            },
                                         },
-                                        "end": "}\n</tool_call>",
-                                    } for tool in tools
-                                ],
-                            }
-                        ]
-                    },
-                }
-            elif stag_style == "gpt-oss":        
-                def from_builtin_tool_to_tag(tool) -> list[dict]:
-                    tag = [
-                        {
-                            "begin": f"<|channel|>commentary to=functions.{tool["function"]["name"]} <|constrain|>json<|message|>",
-                            "content": {
-                                    "type": "json_schema", 
-                                    "json_schema": {
-                                        "properties": tool["function"]["parameters"]["properties"],
-                                        "required": tool["function"]["parameters"]["required"],
-                                        "type": tool["function"]["parameters"]["type"],
-                                    },
-                            },
-                            "end": "<|call|>",
-                        },
-                        {
-                            "begin": f"<|channel|>analysis to=functions.{tool["function"]["name"]} <|constrain|>json<|message|>",
-                            "content": {
-                                    "type": "json_schema", 
-                                    "json_schema": {
-                                        "properties": tool["function"]["parameters"]["properties"],
-                                        "required": tool["function"]["parameters"]["required"],
-                                        "type": tool["function"]["parameters"]["type"],
-                                    },
-                            },
-                            "end": "<|call|>",
-                        },
-                    ]
-                    return tag               
-                response_format = {
-                    "type": "structural_tag",
-                    "format": {
-                        "type": "sequence",
-                        "elements": [
-                            {
-                                "type": "tag",
-                                "begin": "<|channel|>analysis<|message|>",
-                                "content": {"type": "any_text"},
-                                "end": "<|end|><|start|>assistant",
+                                },
+                                "end": "<|call|>",
                             },
                             {
-                                "type": "triggered_tags",
-                                "tags": [],
-                                "triggers": ["<|channel|>analysis to=", "<|channel|>commentary to="],    
+                                "begin": f"<|channel|>analysis to=functions.{tool["function"]["name"]} <|constrain|>json<|message|>",
+                                "content": {
+                                        "type": "json_schema", 
+                                        "json_schema": {
+                                            "properties": tool["function"]["parameters"]["properties"],
+                                            "required": tool["function"]["parameters"]["required"],
+                                            "type": tool["function"]["parameters"]["type"],
+                                        },
+                                },
+                                "end": "<|call|>",
                             },
                         ]
-                    },
-                }
-                for tool in tools:
-                    response_format["format"]["elements"][1]["tags"].extend(from_builtin_tool_to_tag(tool))
-            else:
-                raise ValueError(f"Unknown stag_style: {stag_style}")
-            extra_bodies.append({"response_format": response_format})
+                        return tag               
+                    response_format = {
+                        "type": "structural_tag",
+                        "format": {
+                            "type": "sequence",
+                            "elements": [
+                                {
+                                    "type": "tag",
+                                    "begin": "<|channel|>analysis<|message|>",
+                                    "content": {"type": "any_text"},
+                                    "end": "<|end|><|start|>assistant",
+                                },
+                                {
+                                    "type": "triggered_tags",
+                                    "tags": [],
+                                    "triggers": ["<|channel|>analysis to=", "<|channel|>commentary to="],    
+                                },
+                            ]
+                        },
+                    }
+                    for tool in tools:
+                        response_format["format"]["elements"][1]["tags"].extend(from_builtin_tool_to_tag(tool))
+                else:
+                    raise ValueError(f"Unknown stag_style: {stag_style}")
+                extra_bodies.append({"response_format": response_format})
+        else:
+            extra_bodies.append({
+                "tools": tools,
+                "tool_choice": "auto",
+            })
         
 
     print(f"#Requests: {len(output_dataset)}")
@@ -545,16 +551,28 @@ def node0_print(msg):
     if server_args.node_rank == 0:
         print(msg)
 
-def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str):
+def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str, apply_chat_template):
+    if apply_chat_template:
+        if "Llama3" in tokenizer.name_or_path:
+            stag_style = "Llama3"
+        elif "Qwen3" in tokenizer.name_or_path:
+            stag_style = "Qwen3"
+        elif "gpt-oss" in tokenizer.name_or_path:
+            stag_style = "gpt-oss"
+        else:
+            raise ValueError(f"Please specify stag_style for model {tokenizer.name_or_path}")
+    else:
+        stag_style = "none"
     input_requests, tools, extra_bodies = generate_BFCL_dataset(
         dataset_path=dataset_path,
         num_requests=num_requests,
         tokenizer=tokenizer,
         fixed_output_len=1024,
-        apply_chat_template=True,
+        apply_chat_template=apply_chat_template,
+        stag_style=stag_style,
     )
     backend = "sglang"
-    api_url = f"{base_url}/generate"
+    api_url = f"{base_url}/generate" if apply_chat_template else f"{base_url}/v1/chat/completions"
 
     # We need to set some dummy values in order to call `benchmark` below.
     args = SimpleNamespace(
@@ -593,22 +611,7 @@ def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str):
     )
 
     assert results["completed"] == len(input_requests)
-    acc_length = results["accept_length"] or 1.0
-    avg_output_token = results["total_output_tokens"] / results["completed"]
-
-    server_info = requests.get(base_url + "/get_server_info").json()
-    # We use 20% percentile instead of median on purpose
-    step_time = np.percentile(
-        server_info["internal_states"][0]["step_time_dict"][str(batch_size)], 20
-    )
-    speed = 1 / step_time * acc_length
-
-    return (
-        round(acc_length, 3),
-        round(step_time, 5),
-        round(speed, 3),
-        avg_output_token,
-    )
+    return (results["mean_ttft_ms"], results["mean_tpot_ms"])
 
 
 def main(args, server_args):
@@ -661,29 +664,31 @@ def main(args, server_args):
                 num_requests=-1,
                 batch_size=batch_size,
                 tokenizer=tokenizer,
-                dataset_path=args.dataset_path
+                dataset_path=args.dataset_path,
+                apply_chat_template=args.apply_chat_template
             )
             # Benchmark
-            acc_length, step_time, speed, completion_tokens = send(
+            ttft_ms, tpot_ms = send(
                 base_url=base_url,
                 num_requests=-1,
                 batch_size=batch_size,
                 tokenizer=tokenizer,
-                dataset_path=args.dataset_path
+                dataset_path=args.dataset_path,
+                apply_chat_template=args.apply_chat_template
             )
         finally:
             kill_process_tree(process.pid)
 
         node0_print(
-            f"batch_size={batch_size}, acc_length={acc_length}, step_time={step_time}, speed={speed} tokens/s"
+            f"batch_size={batch_size}, ttft_ms={ttft_ms}, tpot_ms={tpot_ms}"
         )
 
         record = {
+            "model_path": args.model_path,
+            "dataset_path": args.dataset_path,
             "batch_size": batch_size,
-            "acc_length": acc_length,
-            "step_time": step_time,
-            "speed": speed,
-            "completion_tokens": completion_tokens,
+            "mean_ttft_ms": ttft_ms,
+            "mean_tpot_ms": tpot_ms,
         }
 
         with open(args.output_path, "a") as fout:
@@ -701,6 +706,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch-size", type=int, nargs="+", default=(1, 128))
     parser.add_argument("--dataset-path", type=str)
     parser.add_argument("--output-path", type=str)
+    parser.add_argument("--apply-chat-template", action="store_true")
     args = parser.parse_args()
     server_args: ServerArgs = ServerArgs.from_cli_args(args)
 
