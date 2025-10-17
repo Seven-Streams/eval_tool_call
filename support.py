@@ -1,17 +1,5 @@
-"""
-Usage:
-# single GPU
-python3 bench_speculative.py --model-path meta-llama/Llama-2-7b-chat-hf --speculative-draft-model-path lmsys/sglang-EAGLE-llama2-chat-7B
-
-# multiple GPU
-python3 bench_speculative.py --model-path deepseek-ai/DeepSeek-V3 --speculative-draft-model-path lmsys/DeepSeek-V3-NextN --tp-size 8 --trust-remote-code --batch-size 1 4 8 16 32 --steps 0 1 2 --topk 0 1 2 4 --num_draft_tokens 0 2 4 8
-"""
-
-import argparse
 import asyncio
-import datetime
 import json
-import os
 import random
 import time
 from types import SimpleNamespace
@@ -19,8 +7,8 @@ from typing import List, Optional, Tuple, Dict, Any, Literal
 
 import numpy as np
 import requests
-import tqdm
-from transformers import AutoTokenizer, PreTrainedTokenizerBase
+from tqdm import tqdm
+from transformers import PreTrainedTokenizerBase
 
 from sglang.bench_serving import (
     DatasetRow,
@@ -34,12 +22,6 @@ from sglang.bench_serving import (
     _get_bool_env_var,
     RequestFuncOutput,
     ASYNC_REQUEST_FUNCS
-)
-from sglang.srt.server_args import ServerArgs
-from sglang.test.test_utils import (
-    DEFAULT_TIMEOUT_FOR_SERVER_LAUNCH,
-    kill_process_tree,
-    popen_launch_server,
 )
 
 async def benchmark(
@@ -111,11 +93,11 @@ async def benchmark(
     if warmup_requests > 0 and not any(output.success for output in warmup_outputs):
         raise ValueError(
             "Warmup failed - Please make sure benchmark arguments "
-            f"are correctly specified. Error: {warmup_outputs[0].error}"
+            f"are correctly specified. Error: {warmup_outputs[0]}"
         )
     else:
         print(
-            f"Warmup completed with {args.warmup_requests} sequences. Starting main benchmark run..."
+            f"Warmup completed with {warmup_requests} sequences. Starting main benchmark run..."
         )
 
     # Flush cache
@@ -140,7 +122,8 @@ async def benchmark(
     request_generator = get_request(input_requests, request_rate)
 
     pbar = None if disable_tqdm else tqdm(total=pbar_total)
-    async for i, request in enumerate(request_generator):
+    i = 0
+    async for request in request_generator:
         if lora_names is not None and len(lora_names) != 0:
             idx = random.randint(0, len(lora_names) - 1)
             lora_name = lora_names[idx]
@@ -158,12 +141,13 @@ async def benchmark(
             extra_request_body=extra_request_body[i],
             timestamp=request.timestamp,
         )
-
         tasks.append(
             asyncio.create_task(
                 limited_request_func(request_func_input=request_func_input, pbar=pbar)
             )
         )
+        i += 1
+        
     outputs: List[RequestFuncOutput] = await asyncio.gather(*tasks)
 
     # Stop profiler
@@ -284,15 +268,6 @@ async def benchmark(
         and metrics.output_throughput is not None
     ):
         result = {
-            # Arguments
-            "backend": args.backend,
-            "dataset_name": args.dataset_name,
-            "request_rate": "trace" if use_trace_timestamps else request_rate,
-            "max_concurrency": max_concurrency,
-            "sharegpt_output_len": args.sharegpt_output_len,
-            "random_input_len": args.random_input_len,
-            "random_output_len": args.random_output_len,
-            "random_range_ratio": args.random_range_ratio,
             # Results
             "duration": benchmark_duration,
             "completed": metrics.completed,
@@ -328,24 +303,6 @@ async def benchmark(
         print(f"Error running benchmark for request rate: {request_rate}")
         print("-" * 30)
 
-    # Determine output file name
-    if args.output_file:
-        output_file_name = args.output_file
-    else:
-        now = datetime.now().strftime("%m%d")
-        if args.dataset_name == "image":
-            output_file_name = (
-                f"{args.backend}_{now}_{args.num_prompts}_{args.random_input_len}_"
-                f"{args.random_output_len}_{args.image_count}imgs_"
-                f"{args.image_resolution}.jsonl"
-            )
-        elif args.dataset_name.startswith("random"):
-            output_file_name = f"{args.backend}_{now}_{args.num_prompts}_{args.random_input_len}_{args.random_output_len}.jsonl"
-        else:
-            output_file_name = (
-                f"{args.backend}_{now}_{args.num_prompts}_{args.dataset_name}.jsonl"
-            )
-
     result_details = {
         "input_lens": [output.prompt_len for output in outputs],
         "output_lens": output_lens,
@@ -354,14 +311,6 @@ async def benchmark(
         "generated_texts": [output.generated_text for output in outputs],
         "errors": [output.error for output in outputs],
     }
-
-    # Append results to a JSONL file
-    with open(output_file_name, "a") as file:
-        if args.output_details:
-            result_for_dump = result | result_details
-        else:
-            result_for_dump = result
-        file.write(json.dumps(result_for_dump) + "\n")
 
     return result | result_details
 
@@ -390,7 +339,6 @@ def generate_BFCL_dataset(
 
     # Filter out sequences that are too long or too short
     output_dataset: List[DatasetRow] = []
-    output_tools: List[List[Dict]] = []
     extra_bodies: List[Dict[str, Any]] = []
     for i in range(len(dataset)):
         if len(output_dataset) == num_requests:
@@ -409,6 +357,8 @@ def generate_BFCL_dataset(
             )
             if tokenizer.bos_token:
                 messages = messages.replace(tokenizer.bos_token, "")
+        else:
+            messages = json.dumps(messages)
 
         prompt_len = len(tokenizer.encode(messages))
         output_len = fixed_output_len
@@ -420,8 +370,7 @@ def generate_BFCL_dataset(
                 output_len=output_len,
             )
         )
-        output_tools.append(tools)
-        
+
         if apply_chat_template:
             if stag_style == "none":
                 extra_bodies.append({})
@@ -446,6 +395,7 @@ def generate_BFCL_dataset(
                                     "end": "}",
                                 } for tool in tools
                             ],
+                            "at_least_one": True,
                         },
                 }
                 elif stag_style == "Qwen3":
@@ -540,30 +490,28 @@ def generate_BFCL_dataset(
                 "tool_choice": "auto",
             })
         
-
     print(f"#Requests: {len(output_dataset)}")
     print(f"#Input tokens: {np.sum([x.prompt_len for x in output_dataset])}")
     print(f"#Output tokens: {np.sum([x.output_len for x in output_dataset])}")
-    return output_dataset, output_tools, extra_bodies
+    return output_dataset, extra_bodies
 
 
-def node0_print(msg):
-    if server_args.node_rank == 0:
-        print(msg)
-
-def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str, apply_chat_template):
+def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str, apply_chat_template, use_stag=True):
     if apply_chat_template:
-        if "Llama3" in tokenizer.name_or_path:
-            stag_style = "Llama3"
-        elif "Qwen3" in tokenizer.name_or_path:
-            stag_style = "Qwen3"
-        elif "gpt-oss" in tokenizer.name_or_path:
-            stag_style = "gpt-oss"
+        if use_stag:
+            if "Llama-3" in tokenizer.name_or_path:
+                stag_style = "Llama3"
+            elif "Qwen3" in tokenizer.name_or_path:
+                stag_style = "Qwen3"
+            elif "gpt-oss" in tokenizer.name_or_path:
+                stag_style = "gpt-oss"
+            else:
+                raise ValueError(f"Please specify stag_style for model {tokenizer.name_or_path}")
         else:
-            raise ValueError(f"Please specify stag_style for model {tokenizer.name_or_path}")
+            stag_style = "none"
     else:
         stag_style = "none"
-    input_requests, tools, extra_bodies = generate_BFCL_dataset(
+    input_requests, extra_bodies = generate_BFCL_dataset(
         dataset_path=dataset_path,
         num_requests=num_requests,
         tokenizer=tokenizer,
@@ -571,7 +519,7 @@ def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str, apply
         apply_chat_template=apply_chat_template,
         stag_style=stag_style,
     )
-    backend = "sglang"
+    backend = "sglang" if apply_chat_template else "sglang-oai-chat"
     api_url = f"{base_url}/generate" if apply_chat_template else f"{base_url}/v1/chat/completions"
 
     # We need to set some dummy values in order to call `benchmark` below.
@@ -611,103 +559,5 @@ def send(base_url, num_requests, batch_size, tokenizer, dataset_path: str, apply
     )
 
     assert results["completed"] == len(input_requests)
-    return (results["mean_ttft_ms"], results["mean_tpot_ms"])
+    return results["mean_ttft_ms"], results["mean_tpot_ms"], results["generated_texts"]
 
-
-def main(args, server_args):
-    base_url = "http://127.0.0.1:20000"
-
-    for batch_size in args.batch_size:
-
-        node0_print(
-            f"Start Testing batch_size={batch_size} on dataset {args.dataset_path} with model {args.model_path}"
-        )
-
-        # Create an LLM.
-        other_args = []
-        other_args.extend(
-            [
-                "--cuda-graph-max-bs",
-                batch_size,
-                "--mem-fraction-static",
-                server_args.mem_fraction_static,
-                "--tp-size",
-                server_args.tp_size,
-                "--max-running-requests",
-                batch_size,
-            ]
-        )
-        if server_args.trust_remote_code:
-            other_args.extend(
-                [
-                    "--trust-remote-code",
-                ]
-            )
-        process = popen_launch_server(
-            args.model_path,
-            base_url,
-            timeout=DEFAULT_TIMEOUT_FOR_SERVER_LAUNCH,
-            other_args=other_args,
-            env={
-                "SGLANG_RECORD_STEP_TIME": "1",
-                **os.environ,
-            },
-        )
-        tokenizer = AutoTokenizer.from_pretrained(
-            args.model_path, trust_remote_code=server_args.trust_remote_code
-        )
-
-        try:
-            # Warmup
-            _ = send(
-                base_url=base_url,
-                num_requests=-1,
-                batch_size=batch_size,
-                tokenizer=tokenizer,
-                dataset_path=args.dataset_path,
-                apply_chat_template=args.apply_chat_template
-            )
-            # Benchmark
-            ttft_ms, tpot_ms = send(
-                base_url=base_url,
-                num_requests=-1,
-                batch_size=batch_size,
-                tokenizer=tokenizer,
-                dataset_path=args.dataset_path,
-                apply_chat_template=args.apply_chat_template
-            )
-        finally:
-            kill_process_tree(process.pid)
-
-        node0_print(
-            f"batch_size={batch_size}, ttft_ms={ttft_ms}, tpot_ms={tpot_ms}"
-        )
-
-        record = {
-            "model_path": args.model_path,
-            "dataset_path": args.dataset_path,
-            "batch_size": batch_size,
-            "mean_ttft_ms": ttft_ms,
-            "mean_tpot_ms": tpot_ms,
-        }
-
-        with open(args.output_path, "a") as fout:
-            fout.write(json.dumps(record) + "\n")
-
-        # Wait for the server to shutdown
-        time.sleep(5)
-
-
-# The __main__ condition is necessary here because we use "spawn" to create subprocesses
-# Spawn starts a fresh program every time, if there is no __main__, it will run into infinite loop to keep spawning processes from sgl.Engine
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    ServerArgs.add_cli_args(parser)
-    parser.add_argument("--batch-size", type=int, nargs="+", default=(1, 128))
-    parser.add_argument("--dataset-path", type=str)
-    parser.add_argument("--output-path", type=str)
-    parser.add_argument("--apply-chat-template", action="store_true")
-    args = parser.parse_args()
-    server_args: ServerArgs = ServerArgs.from_cli_args(args)
-
-    main(args, server_args)
