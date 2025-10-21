@@ -4,7 +4,7 @@ cd llz
 git clone --recursive https://github.com/Seven-Streams/xgrammar.git
 cd xgrammar
 git pull --all
-git switch main-dev/2025-10-20/final
+git switch main-dev/2025-10-22/jit_default
 
 # Make sure the right version of g++.
 conda install -c conda-forge gcc=12.1.0
