@@ -47,7 +47,7 @@ python3 bench_stagv2.py --dataset-path ./dataset/BFCL_v3_live_multiple.json --ba
 python3 bench_stagv2.py --dataset-path ./dataset/BFCL_v3_live_multiple.json --batch-size 1 128  --model-path meta-llama/Meta-Llama-3.1-8B-Instruct --grammar-backend outlines --output-path ./output/llama-outlines.json
 python3 bench_stagv2.py --dataset-path ./dataset/BFCL_v3_live_multiple.json --batch-size 1 128  --model-path openai/gpt-oss-20b --grammar-backend xgrammar --output-path ./output/oss-xgr.json
 python3 bench_stagv2.py --dataset-path ./dataset/BFCL_v3_live_multiple.json --batch-size 1 128  --model-path openai/gpt-oss-20b --grammar-backend llguidance --output-path ./output/oss-llg.json
-python3 bench_stagv2.py --dataset-path ./dataset/BFCL_v3_live_multiple.json --batch-size 1 128  --model-path meta-llama/Meta-Llama-3.1-8B-Instruct --grammar-backend outlines --output-path ./output/llama-outlines.json
+python3 bench_stagv2.py --dataset-path ./dataset/BFCL_v3_live_multiple.json --batch-size 1 128  --model-path openai/gpt-oss-20b --grammar-backend outlines --output-path ./output/llama-outlines.json
 
 # generate the results
 cd ..
