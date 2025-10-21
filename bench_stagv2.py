@@ -61,16 +61,17 @@ def main(args, server_args):
         )
 
         try:
-            # Warmup
-            _ = send(
-                base_url=base_url,
-                num_requests=-1,
-                batch_size=batch_size,
-                tokenizer=tokenizer,
-                dataset_path=args.dataset_path,
-                apply_chat_template=True,
-                use_stag=True,
-            )
+            # No Warmup
+            # _ = send(
+            #     base_url=base_url,
+            #     num_requests=-1,
+            #     batch_size=batch_size,
+            #     tokenizer=tokenizer,
+            #     dataset_path=args.dataset_path,
+            #     apply_chat_template=True,
+            #     use_stag=True,
+            # )
+            
             # Benchmark
             stag_ttft_ms, stag_tpot_ms, stag_generated_texts = send(
                 base_url=base_url,
@@ -81,16 +82,17 @@ def main(args, server_args):
                 apply_chat_template=True,
                 use_stag=True
             )
-            # Warmup
-            _ = send(
-                base_url=base_url,
-                num_requests=-1,
-                batch_size=batch_size,
-                tokenizer=tokenizer,
-                dataset_path=args.dataset_path,
-                apply_chat_template=True,
-                use_stag=False
-            )
+            # No Warmup
+            # _ = send(
+            #     base_url=base_url,
+            #     num_requests=-1,
+            #     batch_size=batch_size,
+            #     tokenizer=tokenizer,
+            #     dataset_path=args.dataset_path,
+            #     apply_chat_template=True,
+            #     use_stag=False
+            # )
+            
             # Benchmark
             no_stag_ttft_ms, no_stag_tpot_ms, no_stag_generated_texts = send(
                 base_url=base_url,

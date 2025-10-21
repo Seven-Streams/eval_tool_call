@@ -77,7 +77,7 @@ def main(args, server_args):
                 dataset_path=args.dataset_path,
                 apply_chat_template=False
             )
-                        # Warmup
+            # Warmup
             _ = send(
                 base_url=base_url,
                 num_requests=-1,
