@@ -1,5 +1,6 @@
 # Clone Xgrammar 2 in devlopment.
 mkdir llz
+cd llz
 git clone --recursive https://github.com/Seven-Streams/xgrammar.git
 cd xgrammar
 git pull --all
