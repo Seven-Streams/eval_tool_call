@@ -1,12 +1,12 @@
-"""MLC LLM Bench Request"""
+"""Benchmark request records."""
 
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 import pandas as pd  # pylint: disable=import-error
 from pydantic import BaseModel
 
-from mlc_llm.protocol.openai_api_protocol import ChatCompletionRequest
-from mlc_llm.support import logging
+from openai_protocol import ChatCompletionRequest
+import logging
 
 logger = logging.getLogger(__name__)
 

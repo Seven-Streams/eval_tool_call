@@ -1,4 +1,4 @@
-"""MLC LLM benchmark dataset classes"""
+"""Benchmark dataset classes."""
 
 import argparse
 import json
@@ -14,13 +14,12 @@ import pandas as pd  # pylint: disable=import-error
 from datasets import load_dataset  # pylint: disable=import-error
 from transformers import AutoTokenizer  # pylint: disable=import-error
 
-from request_record import GroupedRequestRecord, Metrics, RequestRecord
-from mlc_llm.protocol.openai_api_protocol import (
+from openai_protocol import (
     ChatCompletionMessage,
     ChatCompletionRequest,
-    ChatToolCall,
     DebugConfig,
 )
+from request_record import GroupedRequestRecord, Metrics, RequestRecord
 
 
 class Dataset:  # pylint: disable=too-few-public-methods
@@ -281,11 +280,7 @@ class GorillaDataset(Dataset):  # pylint: disable=too-few-public-methods
             if "Llama-3.1" in self.model:
                 messages = [
                     ChatCompletionMessage(
-                        content=(
-                            "Cutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n"
-                            if self.api_endpoint == "mlc"
-                            else ""
-                        ),
+                        content="",
                         role="system",
                     ),
                     ChatCompletionMessage(

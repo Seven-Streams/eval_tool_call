@@ -1,4 +1,4 @@
-"""MLC LLM Bench Request"""
+"""Benchmark request processors."""
 
 import argparse
 import asyncio
@@ -16,13 +16,9 @@ from transformers import AutoTokenizer  # pylint: disable=import-error
 
 from api_endpoint import APIEndPoint
 from dataset import Dataset
+from openai_protocol import ChatCompletionMessage, ChatCompletionRequest, DebugConfig
 from request_record import GroupedRequestRecord, RequestRecord
-from mlc_llm.protocol.openai_api_protocol import (
-    ChatCompletionMessage,
-    ChatCompletionRequest,
-    DebugConfig,
-)
-from mlc_llm.support import logging
+import logging
 
 logger = logging.getLogger(__name__)
 

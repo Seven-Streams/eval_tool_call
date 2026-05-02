@@ -1,4 +1,4 @@
-"""MLC LLM benchmark main entrance"""
+"""Tool-calling accuracy result checker."""
 
 import argparse
 import json
@@ -820,7 +820,7 @@ def main(args: argparse.Namespace):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("MLC LLM benchmark")
+    parser = argparse.ArgumentParser("Tool-calling accuracy result checker")
 
     parser.add_argument(
         "--dataset",

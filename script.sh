@@ -1,8 +1,8 @@
 export SERVER_ADDR="127.0.0.1"
 export SERVER_PORT="8000"
-export MODEL_PATH="HF://mlc-ai/Llama-3.1-8B-Instruct-q0f16-MLC" # or the path of other model
-export MODEL="Llama-3.1-70B-Instruct-q0f16-MLC" # or other model names
-export TOKENIZER="./dist/Llama-3.1-70B-Instruct-q0f16-MLC" # or the path of other tokenizer
+export MODEL_PATH="meta-llama/Meta-Llama-3.1-8B-Instruct" # or the path of other model
+export MODEL="Llama-3.1-8B-Instruct" # or other model names
+export TOKENIZER="$MODEL_PATH" # or the path of other tokenizer
 export DATA_PATH="./data/dataset"
 export N_GPU=4
 export ACC_RAW="./data/accuracy_raw"
@@ -13,25 +13,12 @@ export EFF="./data/efficiency"
 
 # Launch the server
 
-# Launch mlc-llm server(1 gpu)
-mlc_llm serve $MODEL_PATH --mode server \
---host $SERVER_ADDR --port $SERVER_PORT --enable-debug --prefix-cache-mode disable
-
-# Or launch sglang server(1 gpu)
+# Launch SGLang server (1 GPU)
 python -m sglang.launch_server --model-path $MODEL_PATH \
 --host $SERVER_ADDR --port $SERVER_PORT --disable-radix-cache  --dtype float16 \
 --enable-torch-compile 
 
-# For large model(e.g., Llama-3.1-70B)(multiple gpu)
-git clone https://huggingface.co/mlc-ai/Llama-3.1-70B-Instruct-q0f16-MLC
-python3 -m mlc_llm compile ./Llama-3.1-70B-Instruct-q0f16-MLC \
-        --device nvidia/nvidia-h100 --opt O3 --overrides "tensor_parallel_shards=4" \
-        -o ./Llama-3.1-70B-Instruct-q0f16-MLC/lib.so
-
-mlc_llm serve ./Llama-3.1-70B-Instruct-q0f16-MLC --model-lib ./Llama-3.1-70B-Instruct-q0f16-MLC/lib.so \
---mode server --host $SERVER_ADDR --port $SERVER_PORT --enable-debug --prefix-cache-mode disable
-
-# Or launch sglang server(multuple gpu)
+# Launch SGLang server (multiple GPUs)
 python -m sglang.launch_server --model-path $MODEL_PATH --tp 4 \
 --host $SERVER_ADDR --port $SERVER_PORT --disable-radix-cache  --dtype float16 
 
@@ -43,14 +30,14 @@ python accuracy.py --model $MODEL --tokenizer $TOKENIZER \
 --dataset BFCL_v3_parallel --num-requests 200 \
 --dataset-path $DATA_PATH --num-gpus $N_GPU \
 --num-warmup-requests 1 --request-rate inf \
---host $SERVER_ADDR --port $SERVER_PORT --api-endpoint mlc --output $ACC_RAW \
+--host $SERVER_ADDR --port $SERVER_PORT --api-endpoint sglang --output $ACC_RAW \
 --temperature 0.001 --top-p 0.9 
 
 python accuracy.py --model $MODEL --tokenizer $TOKENIZER \
 --dataset BFCL_v3_parallel --num-requests 200 \
 --dataset-path $DATA_PATH --num-gpus $N_GPU \
 --num-warmup-requests 1 --request-rate inf \
---host $SERVER_ADDR --port $SERVER_PORT --api-endpoint mlc --output $ACC_RAW \
+--host $SERVER_ADDR --port $SERVER_PORT --api-endpoint sglang --output $ACC_RAW \
 --temperature 0.001 --top-p 0.9 \
 --use-stag
 
@@ -58,14 +45,14 @@ python accuracy.py --model $MODEL --tokenizer $TOKENIZER \
 --dataset BFCL_v3_live_multiple --num-requests 1052 \
 --dataset-path $DATA_PATH --num-gpus $N_GPU \
 --num-warmup-requests 1 --request-rate inf \
---host $SERVER_ADDR --port $SERVER_PORT --api-endpoint mlc --output $ACC_RAW \
+--host $SERVER_ADDR --port $SERVER_PORT --api-endpoint sglang --output $ACC_RAW \
 --temperature 0.001 --top-p 0.9 
 
 python accuracy.py --model $MODEL --tokenizer $TOKENIZER \
 --dataset BFCL_v3_live_multiple --num-requests 1052 \
 --dataset-path $DATA_PATH --num-gpus $N_GPU \
 --num-warmup-requests 1 --request-rate inf \
---host $SERVER_ADDR --port $SERVER_PORT --api-endpoint mlc --output $ACC_RAW \
+--host $SERVER_ADDR --port $SERVER_PORT --api-endpoint sglang --output $ACC_RAW \
 --temperature 0.001 --top-p 0.9 \
 --use-stag
 
@@ -79,23 +66,7 @@ python draw_accuracy.py --summary-root $ACC_SUM
 
 # Test the efficiency
 
-# With mlc-llm server
-python efficiency.py  --model $MODEL --tokenizer $TOKENIZER \
---dataset BFCL_v3_multiple --dataset-path $DATA_PATH --num-gpus $N_GPU \
---num-warmup-requests 200 --num-requests 200 \
---host $SERVER_ADDR --port $SERVER_PORT --num-concurrent-requests 1 \
---api-endpoint mlc --output $EFF --stream \
---temperature 0.001 --top-p 0.9 \
---use-stag
-
-python efficiency.py  --model $MODEL --tokenizer $TOKENIZER \
---dataset BFCL_v3_multiple --dataset-path $DATA_PATH --num-gpus $N_GPU \
---num-warmup-requests 200 --num-requests 200 \
---host $SERVER_ADDR --port $SERVER_PORT --num-concurrent-requests 1 \
---api-endpoint mlc --output $EFF --stream \
---temperature 0.001 --top-p 0.9 
-
-# With sglang server
+# With SGLang server
 python efficiency.py  --model $MODEL --tokenizer $TOKENIZER \
 --dataset BFCL_v3_multiple --dataset-path ./data/dataset --num-gpus $N_GPU \
 --num-warmup-requests 200 --num-requests 200 \

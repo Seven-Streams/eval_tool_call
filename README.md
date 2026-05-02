@@ -1,24 +1,24 @@
-# Evaluate the tool-calling accuracy and efficiency on LLM engine with Structural Tag
+# Evaluate tool-calling accuracy and efficiency on SGLang with Structural Tag
 
-The evaluation script is modified based on the MLC-LLM bench and BFCL ast checker. The script uses the Structural Tag API to test the tool-calling accuracy and efficiency
+The evaluation script is modified based on the BFCL ast checker. The script uses the Structural Tag API to test tool-calling accuracy and efficiency against an SGLang OpenAI-compatible server.
 
 ## Test the accuracy
 
 First launch the server.
 ```bash
-mlc_llm serve HF://mlc-ai/Llama-3.1-8B-Instruct-q0f16-MLC --mode server \
---host 127.0.0.1 --port 8000 --enable-debug --prefix-cache-mode disable
+python -m sglang.launch_server --model-path meta-llama/Meta-Llama-3.1-8B-Instruct \
+--host 127.0.0.1 --port 8000 --dtype float16
 ```
 
 Than generate the raw data (w/ & w/o structural tag):
 ```bash
 cd ./tool_call_eval
-python accuracy.py --model Llama-3.1-8B-Instruct-q0f16-MLC \
---tokenizer /dist/Llama-3-8B-Instruct-q0f32-MLC \
+python accuracy.py --model Llama-3.1-8B-Instruct \
+--tokenizer meta-llama/Meta-Llama-3.1-8B-Instruct \
 --dataset BFCL_v3_simple --dataset-path ./data/dataset --num-gpus 1 \
 --num-requests 400 --num-warmup-requests 1 --request-rate inf \
 --host 127.0.0.1 --port 8000 \
---api-endpoint mlc --output ./data/accuracy_raw \
+--api-endpoint sglang --output ./data/accuracy_raw \
 --temperature 0.001 --top-p 0.9 \
 [--use-stag]
 ```
@@ -47,23 +47,20 @@ Note: you may need to modify `SUPPORTED_MODEL` and `SUPPORTED_DATASET` in `check
 
 Also first launch the server.
 ```bash
-mlc_llm serve HF://mlc-ai/Llama-3.1-8B-Instruct-q0f16-MLC --mode server \
---host 127.0.0.1 --port 8000 --enable-debug --prefix-cache-mode disable
-
 python -m sglang.launch_server --model-path meta-llama/Meta-Llama-3.1-8B-Instruct \
---host 127.0.0.1 --port 30000 --disable-radix-cache  --dtype float16 \
+--host 127.0.0.1 --port 8000 --disable-radix-cache  --dtype float16 \
 --enable-torch-compile 
 ```
 
-Than generate the raw data (w/ & w/o structural tag, mlc/sglang backend):
+Than generate the raw data (w/ & w/o structural tag):
 
 ```bash
-python efficiency.py --model Llama-3.1-8B-Instruct-q0f16-MLC \
---tokenizer /dist/Llama-3.1-8B-Instruct-q0f16-MLC \
+python efficiency.py --model Llama-3.1-8B-Instruct \
+--tokenizer meta-llama/Meta-Llama-3.1-8B-Instruct \
 --dataset BFCL_v3_multiple --dataset-path ./data/dataset --num-gpus 1 \
 --num-warmup-requests 200 --num-requests 200 \
 --host 127.0.0.1 --port 8000 --num-concurrent-requests 1 \
---api-endpoint [mlc|sglang] --output ./data/efficiecy \
+--api-endpoint sglang --output ./data/efficiecy \
 --temperature 0.001 --top-p 0.9 \
 --stream [--use-stag]
 ```

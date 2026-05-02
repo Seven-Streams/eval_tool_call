@@ -1,17 +1,16 @@
-"""MLC LLM bench backends"""
+"""Benchmark backends."""
 
 import argparse
 import json
 import os
 import time
 import traceback
-from typing import Dict, Literal, Optional
+from typing import Literal, Optional
 
-from mlc_llm.protocol.openai_api_protocol import ChatCompletionMessage
 from typing_extensions import Self
 
 from request_record import Metrics, RequestRecord, ServerMetrics
-from mlc_llm.support import logging
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +40,7 @@ class OpenAIChatEndPoint(APIEndPoint):
         self,
         host: str,
         port: int,
-        api_type: Literal["mlc", "sglang"],
+        api_type: Literal["sglang"],
         timeout: Optional[float] = None,
         include_server_metrics: bool = False,
     ) -> None:
@@ -53,8 +52,9 @@ class OpenAIChatEndPoint(APIEndPoint):
         self.client: aiohttp.ClientSession = None
         self.url = f"http://{host}:{port}/v1/chat/completions"
         self.headers = {"Content-Type": "application/json"}
-        if os.getenv("MLC_LLM_API_KEY"):
-            self.headers["Authorization"] = f"Bearer {os.getenv('MLC_LLM_API_KEY')}"
+        api_key = os.getenv("SGLANG_API_KEY") or os.getenv("OPENAI_API_KEY")
+        if api_key:
+            self.headers["Authorization"] = f"Bearer {api_key}"
         self.api_type: str = api_type
 
     async def __aenter__(self) -> Self:
@@ -69,7 +69,8 @@ class OpenAIChatEndPoint(APIEndPoint):
     async def __call__(  # pylint: disable=too-many-branches,too-many-statements,too-many-locals
         self, request_record: RequestRecord
     ) -> RequestRecord:
-        payload = request_record.chat_cmpl.model_dump()
+        payload = request_record.chat_cmpl.model_dump(exclude_none=True)
+        payload.setdefault("stream", False)
         if self.timeout is not None and "timeout" not in payload:
             payload["timeout"] = self.timeout
         if self.include_server_metrics:
@@ -77,21 +78,19 @@ class OpenAIChatEndPoint(APIEndPoint):
                 payload["stream_options"] = {"include_usage": True}
             else:
                 payload["stream_options"]["include_usage"] = True
-        if (
-            request_record.chat_cmpl.debug_config is not None
-            and request_record.chat_cmpl.debug_config.ignore_eos
-        ):
+        debug_config = payload.pop("debug_config", None)
+        if debug_config is not None and debug_config.get("ignore_eos"):
             payload["ignore_eos"] = True
 
-        if self.api_type == "sglang":
-            if (
-                payload["response_format"] is not None
-                and payload["response_format"]["type"] == "structural_tag"
-            ):
-                payload["response_format"]["structures"] = payload[
-                    "response_format"
-                ].pop("tags")
-                for tag in payload["response_format"]["structures"]:
+        response_format = payload.get("response_format")
+        if (
+            response_format is not None
+            and response_format["type"] == "structural_tag"
+            and "tags" in response_format
+        ):
+            response_format["structures"] = response_format.pop("tags")
+            for tag in response_format["structures"]:
+                if isinstance(tag.get("schema"), str):
                     tag["schema"] = json.loads(tag["schema"])
 
         generated_text = ""
@@ -122,18 +121,19 @@ class OpenAIChatEndPoint(APIEndPoint):
                         if content is not None and not time_to_first_token_s:
                             time_to_first_token_s = time.monotonic() - start_time
                             first_chunk_output_str = content
-                        if self.include_server_metrics and data["usage"] is not None:
+                        usage = data.get("usage")
+                        if self.include_server_metrics and usage is not None:
                             # fmt: off
                             # pylint: disable=line-too-long
                             server_metrics = ServerMetrics(
-                                input_tokens=data["usage"]["extra"]["prompt_tokens"],
-                                prefill_tokens=data["usage"]["extra"]["prefill_tokens"],
-                                output_tokens=data["usage"]["extra"]["completion_tokens"],
-                                end_to_end_latency_s=data["usage"]["extra"]["end_to_end_latency_s"],
-                                prefill_tokens_per_s=data["usage"]["extra"]["prefill_tokens_per_s"],
-                                inter_token_latency_s=data["usage"]["extra"]["inter_token_latency_s"],
-                                time_per_output_token_s=1 / data["usage"]["extra"]["decode_tokens_per_s"],
-                                time_to_first_token_s=data["usage"]["extra"]["ttft_s"],
+                                input_tokens=usage["extra"]["prompt_tokens"],
+                                prefill_tokens=usage["extra"]["prefill_tokens"],
+                                output_tokens=usage["extra"]["completion_tokens"],
+                                end_to_end_latency_s=usage["extra"]["end_to_end_latency_s"],
+                                prefill_tokens_per_s=usage["extra"]["prefill_tokens_per_s"],
+                                inter_token_latency_s=usage["extra"]["inter_token_latency_s"],
+                                time_per_output_token_s=1 / usage["extra"]["decode_tokens_per_s"],
+                                time_to_first_token_s=usage["extra"]["ttft_s"],
                             )
                             # pylint: enable=line-too-long
                             # fmt: on
@@ -143,18 +143,19 @@ class OpenAIChatEndPoint(APIEndPoint):
                 else:
                     data = await response.json()
                     generated_text = data["choices"][0]["message"]["content"]
-                    if self.include_server_metrics and data["usage"] is not None:
+                    usage = data.get("usage")
+                    if self.include_server_metrics and usage is not None:
                         # fmt: off
                         # pylint: disable=line-too-long
                         server_metrics = ServerMetrics(
-                            input_tokens=data["usage"]["extra"]["prompt_tokens"],
-                            prefill_tokens=data["usage"]["extra"]["prefill_tokens"],
-                            output_tokens=data["usage"]["extra"]["completion_tokens"],
-                            end_to_end_latency_s=data["usage"]["extra"]["end_to_end_latency_s"],
-                            prefill_tokens_per_s=data["usage"]["extra"]["prefill_tokens_per_s"],
-                            inter_token_latency_s=data["usage"]["extra"]["inter_token_latency_s"],
-                            time_per_output_token_s=1 / data["usage"]["extra"]["decode_tokens_per_s"],
-                            time_to_first_token_s=data["usage"]["extra"]["ttft_s"],
+                            input_tokens=usage["extra"]["prompt_tokens"],
+                            prefill_tokens=usage["extra"]["prefill_tokens"],
+                            output_tokens=usage["extra"]["completion_tokens"],
+                            end_to_end_latency_s=usage["extra"]["end_to_end_latency_s"],
+                            prefill_tokens_per_s=usage["extra"]["prefill_tokens_per_s"],
+                            inter_token_latency_s=usage["extra"]["inter_token_latency_s"],
+                            time_per_output_token_s=1 / usage["extra"]["decode_tokens_per_s"],
+                            time_to_first_token_s=usage["extra"]["ttft_s"],
                         )
                         # pylint: enable=line-too-long
                         # fmt: on
@@ -201,15 +202,12 @@ class OpenAIChatEndPoint(APIEndPoint):
         return request_record
 
 
-SUPPORTED_BACKENDS = [
-    "mlc",
-    "sglang",
-]
+SUPPORTED_BACKENDS = ["sglang"]
 
 
 def create_api_endpoint(args: argparse.Namespace) -> APIEndPoint:
     """Create an API endpoint instance with regard to the specified endpoint kind."""
-    if args.api_endpoint in ["mlc", "sglang"]:
+    if args.api_endpoint == "sglang":
         return OpenAIChatEndPoint(
             args.host,
             args.port,
