@@ -217,12 +217,14 @@ class GorillaDataset(Dataset):  # pylint: disable=too-few-public-methods
 
         request_records = []
         for entry in self.gorilla_data:
+            is_llama3_model = "Llama-3" in self.model
+            is_qwen36_model = "Qwen3.6" in self.model
             if output_len is not None:
                 output_length = output_len
             else:
                 output_length = 1024
             if self.use_stag:
-                if "Llama-3" in self.model:
+                if is_llama3_model:
                     response_format = {
                         "type": "structural_tag",
                         "tags": [
@@ -247,6 +249,14 @@ class GorillaDataset(Dataset):  # pylint: disable=too-few-public-methods
                         ],
                         "triggers": ['{"name":'],
                     }
+                elif is_qwen36_model:
+                    # ABC uses XML function-call format. Structural tags are filled outside.
+                    response_format = get_model_structural_tag(
+                        model="qwen_3_5",
+                        tools=entry["tool"],
+                        tool_choice="auto",
+                        reasoning=True
+                    ).model_dump()
                 else:
                     response_format = {
                         "type": "structural_tag",
@@ -296,6 +306,50 @@ class GorillaDataset(Dataset):  # pylint: disable=too-few-public-methods
                 for message in entry["question"]:
                     if message["role"] == "system":
                         messages[0].content += message["content"]
+                    else:
+                        messages[1].content += message["content"]
+            elif is_qwen36_model:
+                tools_str = ""
+                for tool in entry["tool"]:
+                    tools_str += f"{json.dumps(tool, indent=4)}\n"
+                messages = [
+                    ChatCompletionMessage(
+                        content=(
+                            "# Tools\n\n"
+                            "You have access to the following functions:\n\n"
+                            f"<tools>\n{tools_str}</tools>\n\n"
+                            "If you choose to call a function ONLY reply in the following format with NO suffix:\n\n"
+                            "<tool_call>\n"
+                            "<function=example_function_name>\n"
+                            "<parameter=example_parameter_1>\n"
+                            "value_1\n"
+                            "</parameter>\n"
+                            "<parameter=example_parameter_2>\n"
+                            "This is the value for the second parameter\n"
+                            "that can span\n"
+                            "multiple lines\n"
+                            "</parameter>\n"
+                            "</function>\n"
+                            "</tool_call>\n\n"
+                            "<IMPORTANT>\n"
+                            "Reminder:\n"
+                            "- Function calls MUST follow the specified format: "
+                            "an inner <function=...></function> block must be nested within "
+                            "<tool_call></tool_call> XML tags\n"
+                            "- Required parameters MUST be specified\n"
+                            "- You may provide optional reasoning for your function call in natural language "
+                            "BEFORE the function call, but NOT after\n"
+                            "- If there is no function call available, answer the question like normal with "
+                            "your current knowledge and do not tell the user about function calls\n"
+                            "</IMPORTANT>"
+                        ),
+                        role="system",
+                    ),
+                    ChatCompletionMessage(content="", role="user"),
+                ]
+                for message in entry["question"]:
+                    if message["role"] == "system":
+                        messages[0].content += f"\n\n{message['content']}"
                     else:
                         messages[1].content += message["content"]
             elif "Qwen2" in self.model:

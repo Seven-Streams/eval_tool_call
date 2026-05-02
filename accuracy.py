@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import random
+import re
 from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
@@ -27,6 +28,64 @@ from request_record import (
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+try:
+    from sglang.srt.function_call.function_call_parser import FunctionCallParser
+except ImportError:  # pragma: no cover - fallback for older sglang
+    FunctionCallParser = None
+
+
+def _parse_xml_parameter_value(raw_value: str) -> Any:
+    raw_value = raw_value.strip()
+    if not raw_value:
+        return ""
+    try:
+        return json.loads(raw_value)
+    except json.JSONDecodeError:
+        return raw_value
+
+
+def _parse_abc_calls_with_qwen_xml(
+    stringified_calls: str, tools: Optional[List[Dict[str, Any]]]
+) -> List[Dict[str, Any]]:
+    if FunctionCallParser is not None and tools is not None:
+        try:
+            parser = FunctionCallParser(tools=tools, tool_call_parser="qwen_xml")
+            _, calls = parser.parse_non_stream(stringified_calls)
+            parsed = []
+            for call in calls:
+                name = getattr(call, "name", None)
+                if name is None and isinstance(call, dict):
+                    name = call.get("name")
+                arguments = getattr(call, "parameters", None)
+                if arguments is None and isinstance(call, dict):
+                    arguments = call.get("parameters") or call.get("arguments")
+                if name is None or arguments is None:
+                    continue
+                parsed.append({"function": {"name": name, "arguments": arguments}})
+            if parsed:
+                return parsed
+        except Exception:  # pylint: disable=broad-exception-caught
+            pass
+
+    pattern = re.compile(
+        r"<tool_call>\s*<function=([^>\n]+)>\s*(.*?)</function>\s*</tool_call>",
+        re.DOTALL,
+    )
+    parameter_pattern = re.compile(
+        r"<parameter=([^>\n]+)>\s*(.*?)\s*</parameter>", re.DOTALL
+    )
+    parsed = []
+    for match in pattern.finditer(stringified_calls):
+        func_name = match.group(1).strip()
+        func_body = match.group(2)
+        arguments = {}
+        for parameter_match in parameter_pattern.finditer(func_body):
+            key = parameter_match.group(1).strip()
+            value = _parse_xml_parameter_value(parameter_match.group(2))
+            arguments[key] = value
+        parsed.append({"function": {"name": func_name, "arguments": arguments}})
+    return parsed
 
 
 def _parse_num_concurrent_requests(num_str: Optional[str]) -> Optional[List[int]]:
@@ -51,8 +110,13 @@ def _parse_request_rate(request_rate_str: Optional[str]) -> Optional[List[np.flo
     return results
 
 
-def convert_calls_to_json(stringified_calls: str, model: str) -> List[Dict[str, Any]]:
+def convert_calls_to_json(
+    stringified_calls: str, model: str, tools: Optional[List[Dict[str, Any]]] = None
+) -> List[Dict[str, Any]]:
     """Convert stringified tool calls to a list of dicts."""
+    if "Qwen3.6" in model:
+        return _parse_abc_calls_with_qwen_xml(stringified_calls, tools)
+
     function_calls_json = []
     if "Llama-3" in model:
         start = 0
@@ -164,7 +228,9 @@ def main(args: argparse.Namespace):
                 store_record.append({"id": request.request_id})
                 store_record[-1]["output"] = request.output_str
                 store_record[-1]["call"] = convert_calls_to_json(
-                    request.output_str, args.model
+                    request.output_str,
+                    args.model,
+                    dataset.gorilla_data[request.request_id]["tool"],
                 )
             with open(f"{output_dir}/result.json", "w") as f:
                 json.dump(store_record, f, indent=4)

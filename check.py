@@ -27,6 +27,11 @@ SUPPORTED_MODEL = [
 
 from enum import IntEnum
 
+try:
+    from sglang.srt.function_call.function_call_parser import FunctionCallParser
+except ImportError:  # pragma: no cover - fallback for older sglang
+    FunctionCallParser = None
+
 
 class Err_type(IntEnum):
     CALL_NUMBER_ERROR = 0
@@ -43,6 +48,103 @@ class Error:
     def __init__(self, message: str = "", err_type: Err_type = Err_type.NONE):
         self.message = message
         self.error_type = err_type
+
+
+def _parse_xml_parameter_value(raw_value: str) -> Any:
+    raw_value = raw_value.strip()
+    if not raw_value:
+        return ""
+    try:
+        return json.loads(raw_value)
+    except json.JSONDecodeError:
+        return raw_value
+
+
+def _parse_abc_calls_with_qwen_xml(
+    output: str, tools: Optional[List[Dict[str, Any]]]
+) -> List[Dict[str, Any]]:
+    if FunctionCallParser is not None and tools is not None:
+        try:
+            parser = FunctionCallParser(tools=tools, tool_call_parser="qwen_xml")
+            _, calls = parser.parse_non_stream(output)
+            parsed = []
+            for call in calls:
+                name = getattr(call, "name", None)
+                if name is None and isinstance(call, dict):
+                    name = call.get("name")
+                arguments = getattr(call, "parameters", None)
+                if arguments is None and isinstance(call, dict):
+                    arguments = call.get("parameters") or call.get("arguments")
+                if name is None or arguments is None:
+                    continue
+                parsed.append({"function": {"name": name, "arguments": arguments}})
+            if parsed:
+                return parsed
+        except Exception:  # pylint: disable=broad-exception-caught
+            pass
+
+    pattern = re.compile(
+        r"<tool_call>\s*<function=([^>\n]+)>\s*(.*?)</function>\s*</tool_call>",
+        re.DOTALL,
+    )
+    parameter_pattern = re.compile(
+        r"<parameter=([^>\n]+)>\s*(.*?)\s*</parameter>", re.DOTALL
+    )
+    parsed = []
+    for match in pattern.finditer(output):
+        func_name = match.group(1).strip()
+        func_body = match.group(2)
+        arguments = {}
+        for parameter_match in parameter_pattern.finditer(func_body):
+            key = parameter_match.group(1).strip()
+            value = _parse_xml_parameter_value(parameter_match.group(2))
+            arguments[key] = value
+        parsed.append({"function": {"name": func_name, "arguments": arguments}})
+    return parsed
+
+
+def _parse_calls_for_model(
+    model: str, output: str, tools: Optional[List[Dict[str, Any]]]
+) -> List[Dict[str, Any]]:
+    if "ABC" in model:
+        return _parse_abc_calls_with_qwen_xml(output, tools)
+
+    parsed_calls = []
+    start = 0
+    while True:
+        index = output.find('{"name":', start)
+        if index == -1:
+            break
+        try:
+            decoder = json.JSONDecoder()
+            result, end_index = decoder.raw_decode(output, index)
+        except json.JSONDecodeError:
+            start = index + 1
+            continue
+        start = end_index + 1
+        if "Llama-3" in model:
+            if "name" not in result or "parameters" not in result:
+                continue
+            parsed_calls.append(
+                {
+                    "function": {
+                        "name": result["name"],
+                        "arguments": result["parameters"],
+                    }
+                }
+            )
+        elif "Qwen2" in model:
+            if "name" not in result or "arguments" not in result:
+                continue
+            parsed_calls.append(
+                {
+                    "function": {
+                        "name": result["name"],
+                        "arguments": result["arguments"],
+                    }
+                }
+            )
+    return parsed_calls
 
 
 def valid_data_point(tools: List[Dict], expected: List[Dict]) -> bool:
@@ -675,39 +777,10 @@ def get_correct_schema_rate(
     for entry in summary:
         if not entry["valid_datapoint"]:
             continue
-        start = 0
         output = entry[stag_cate]["output"]
-        while True:
-            index = output.find('{"name":', start)
-            if index == -1:
-                break
-            try:
-                decoder = json.JSONDecoder()
-                result, end_index = decoder.raw_decode(output, index)
-            except json.JSONDecodeError as e:
-                start = index + 1
-                continue
-            start = end_index + 1
-            if "Llama-3" in model:
-                if "name" not in result or "parameters" not in result:
-                    continue
-                call_number += 1
-                call = {
-                    "function": {
-                        "name": result["name"],
-                        "arguments": result["parameters"],
-                    }
-                }
-            elif "Qwen2" in model:
-                if "name" not in result or "arguments" not in result:
-                    continue
-                call_number += 1
-                call = {
-                    "function": {
-                        "name": result["name"],
-                        "arguments": result["arguments"],
-                    }
-                }
+        parsed_calls = _parse_calls_for_model(model, output, entry["tools"])
+        for call in parsed_calls:
+            call_number += 1
             err_list = []
             for tool in entry["tools"]:
                 acc, err = check_simple_schema(gorilla, call, tool)
@@ -831,8 +904,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model",
         type=str,
-        choices=SUPPORTED_MODEL,
-        help=f"The benchmark model kind. Supporting {SUPPORTED_MODEL}",
+        help=f'The benchmark model kind, or "ALL" (supported defaults: {SUPPORTED_MODEL}).',
     )
     parser.add_argument(
         "--dataset-path",

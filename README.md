@@ -6,15 +6,15 @@ The evaluation script is modified based on the BFCL ast checker. The script uses
 
 First launch the server.
 ```bash
-python -m sglang.launch_server --model-path meta-llama/Meta-Llama-3.1-8B-Instruct \
+python -m sglang.launch_server --model-path Qwen/Qwen3.6-35B-A3B-FP8 \
 --host 127.0.0.1 --port 8000 --dtype float16
 ```
 
 Than generate the raw data (w/ & w/o structural tag):
 ```bash
 cd ./tool_call_eval
-python accuracy.py --model Llama-3.1-8B-Instruct \
---tokenizer meta-llama/Meta-Llama-3.1-8B-Instruct \
+python accuracy.py --model Qwen/Qwen3.6-35B-A3B-FP8 \
+--tokenizer Qwen/Qwen3.6-35B-A3B-FP8 \
 --dataset BFCL_v3_simple --dataset-path ./data/dataset --num-gpus 1 \
 --num-requests 400 --num-warmup-requests 1 --request-rate inf \
 --host 127.0.0.1 --port 8000 \
