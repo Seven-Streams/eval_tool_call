@@ -440,10 +440,11 @@ class FixedConcurrentRequestExecutor(
                 for i, partition in enumerate(partitions)
             ]
             results: List[RequestRecord] = []
-            for i, future in enumerate(concurrent.futures.as_completed(futures)):
-                results.extend(future.result())
+            for future in concurrent.futures.as_completed(futures):
+                partition_results = future.result()
+                results.extend(partition_results)
                 if pbar is not None:
-                    pbar.update(len(partitions[i]))
+                    pbar.update(len(partition_results))
 
         return results
 
@@ -569,10 +570,11 @@ class FixTimestampExecutor(Executor):  # pylint: disable=too-few-public-methods
                 for partition in partitions
             ]
             results: List[RequestRecord] = []
-            for i, future in enumerate(concurrent.futures.as_completed(futures)):
-                results.extend(future.result())
+            for future in concurrent.futures.as_completed(futures):
+                partition_results = future.result()
+                results.extend(partition_results)
                 if pbar is not None:
-                    pbar.update(len(partitions[i]))
+                    pbar.update(len(partition_results))
 
         return results
 

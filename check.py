@@ -22,6 +22,7 @@ SUPPORTED_MODEL = [
     "Llama-3.1-8B-Instruct-q0f16-MLC",
     "Llama-3.1-70B-Instruct-q0f16-MLC",
     "Qwen2.5-72B-Instruct-q0f16-MLC",
+    "Qwen3.6-27B",
     "ALL",
 ]
 
@@ -60,7 +61,7 @@ def _parse_xml_parameter_value(raw_value: str) -> Any:
         return raw_value
 
 
-def _parse_abc_calls_with_qwen_xml(
+def _parse_Qwen_calls_with_qwen_xml(
     output: str, tools: Optional[List[Dict[str, Any]]]
 ) -> List[Dict[str, Any]]:
     if FunctionCallParser is not None and tools is not None:
@@ -106,8 +107,8 @@ def _parse_abc_calls_with_qwen_xml(
 def _parse_calls_for_model(
     model: str, output: str, tools: Optional[List[Dict[str, Any]]]
 ) -> List[Dict[str, Any]]:
-    if "ABC" in model:
-        return _parse_abc_calls_with_qwen_xml(output, tools)
+    if "Qwen3.6" in model:
+        return _parse_Qwen_calls_with_qwen_xml(output, tools)
 
     parsed_calls = []
     start = 0

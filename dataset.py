@@ -20,7 +20,7 @@ from openai_protocol import (
     DebugConfig,
 )
 from request_record import GroupedRequestRecord, Metrics, RequestRecord
-
+from xgrammar import get_model_structural_tag
 
 class Dataset:  # pylint: disable=too-few-public-methods
     """The dataset base class."""
