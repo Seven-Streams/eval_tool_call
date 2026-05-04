@@ -1,0 +1,58 @@
+{
+    "Qwen3.6-27B": {
+        "BFCL_v3_simple": {
+            "use_stag": {
+                "CALL_NUMBER_ERROR": 0.05,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.0,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.01,
+                "CORRECT_CALL": 0.94
+            },
+            "no_stag": {
+                "CALL_NUMBER_ERROR": 0.04,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.06,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.0,
+                "CORRECT_CALL": 0.8999999999999999
+            },
+            "correct_schema_rate": {
+                "no_stag": 0.9375,
+                "use_stag": 1.0
+            }
+        }
+    },
+    "Qwen3.6-35B-A3B": {
+        "BFCL_v3_simple": {
+            "use_stag": {
+                "CALL_NUMBER_ERROR": 0.0775,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.0,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.015,
+                "CORRECT_CALL": 0.9075
+            },
+            "no_stag": {
+                "CALL_NUMBER_ERROR": 0.085,
+                "FUNC_SELECT_ERROR": 0.0,
+                "FUNC_NAME_ERROR": 0.0,
+                "PARA_KEY_ERROR": 0.0,
+                "TYPE_ERROR": 0.0825,
+                "ENUM_ERROR": 0.0,
+                "PARA_VALUE_ERROR": 0.0175,
+                "CORRECT_CALL": 0.8150000000000001
+            },
+            "correct_schema_rate": {
+                "no_stag": 0.9133858267716536,
+                "use_stag": 1.0
+            }
+        }
+    }
+}
