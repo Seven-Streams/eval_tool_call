@@ -219,7 +219,8 @@ def main(args: argparse.Namespace):
         f_create_api_endpoint = functools.partial(create_api_endpoint, args)
         pipelines = create_pipelines(args, f_create_api_endpoint, dataset)
         store_record = []
-        output_dir = f"{args.output}/{args.model}/{args.dataset}/{'use_stag' if args.use_stag else 'no_stag'}/"
+        model_part_name = args.model.split("/")[-1]
+        output_dir = f"{args.output}/{model_part_name}/{args.dataset}/{'use_stag' if args.use_stag else 'no_stag'}/"
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         for i, pipeline in enumerate(pipelines):
