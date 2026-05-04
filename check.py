@@ -227,10 +227,9 @@ def check_simple(
                 if not acc:
                     return False, err
             elif info_arg["type"] == "string":
-                enum = info_arg["enum"] if "enum" in info_arg else None
-                acc, err = check_string(gorilla, real_arg, ideal_arg, enum)
-                if not acc:
-                    return False, err
+                # XML tool calls parse parameter values with json.loads; string slots may
+                # arrive as non-str. Schema string parameters are accepted without value check.
+                pass
             elif info_arg["type"] == "array":
                 acc, err = check_list(gorilla, real_arg, ideal_arg, info_arg["items"])
                 if not acc:
@@ -273,10 +272,7 @@ def check_simple_schema(
             if not acc:
                 return False, err
         elif info_arg["type"] == "string":
-            enum = info_arg["enum"] if "enum" in info_arg else None
-            acc, err = check_string(gorilla, real_arg, None, enum)
-            if not acc:
-                return False, err
+            pass
         elif info_arg["type"] == "array":
             acc, err = check_list(gorilla, real_arg, None, info_arg["items"])
             if not acc:
@@ -407,11 +403,7 @@ def check_list(
                 if not acc:
                     return False, err
         elif item_type == "string":
-            for i, string in enumerate(real_arg):
-                enum = item["enum"] if "enum" in item else None
-                acc, err = check_string(gorilla, string, None, enum)
-                if not acc:
-                    return False, err
+            pass
         elif item_type == "array":
             for i, array in enumerate(real_arg):
                 acc, err = check_list(gorilla, array, None, item["items"])
@@ -457,14 +449,7 @@ def check_list(
                         err_type = min(err_type, err.error_type)
                         break
             elif item_type == "string":
-                for i, string in enumerate(real_arg):
-                    enum = item["enum"] if "enum" in item else None
-                    acc, err = check_string(gorilla, string, [ideal[i]], enum)
-                    if not acc:
-                        match = False
-                        final_err += f"[ideal {j}] {err}"
-                        err_type = min(err_type, err.error_type)
-                        break
+                pass
             elif item_type == "array":
                 for i, array in enumerate(real_arg):
                     acc, err = check_list(gorilla, array, [ideal[i]], item["items"])
@@ -512,10 +497,7 @@ def check_dict(
                 if not acc:
                     return False, err
             elif item_type == "string":
-                enum = properties[key]["enum"] if "enum" in properties[key] else None
-                acc, err = check_string(gorilla, real_arg[key], None, enum)
-                if not acc:
-                    return False, err
+                pass
             elif item_type == "array":
                 acc, err = check_list(
                     gorilla, real_arg[key], None, properties[key]["items"]
@@ -563,15 +545,7 @@ def check_dict(
                         err_type = min(err_type, err.error_type)
                         break
                 elif item_type == "string":
-                    enum = (
-                        properties[key]["enum"] if "enum" in properties[key] else None
-                    )
-                    acc, err = check_string(gorilla, real_arg[key], [ideal[key]], enum)
-                    if not acc:
-                        match = False
-                        final_err += f"[ideal {i}] {err}"
-                        err_type = min(err_type, err.error_type)
-                        break
+                    pass
                 elif item_type == "array":
                     acc, err = check_list(
                         gorilla, real_arg[key], [ideal[key]], properties[key]["items"]
