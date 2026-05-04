@@ -229,7 +229,7 @@ def check_simple(
                     return False, err
             elif info_arg["type"] == "string":
                 # XML tool calls parse parameter values with json.loads; string slots may
-                # arrive as non-str. Schema string parameters are accepted without value check.
+                # arrive as non-str, and will be converted to str automatically.
                 pass
             elif info_arg["type"] == "array":
                 acc, err = check_list(gorilla, real_arg, ideal_arg, info_arg["items"])
