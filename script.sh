@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export SERVER_ADDR="127.0.0.1"
 export SERVER_PORT="8000"
 export MODEL_PATH="Qwen/Qwen3.6-27B" # or the path of other model
@@ -10,8 +11,23 @@ export DATASET="BFCL_v3_simple"
 export REQUEST_NUM=100
 
 python -m sglang.launch_server --model-path $MODEL_PATH \
---host $SERVER_ADDR --port $SERVER_PORT --disable-radix-cache  --dtype float16 \
---enable-torch-compile 
+  --host $SERVER_ADDR --port $SERVER_PORT &
+SERVER_PID=$!
+trap 'kill $SERVER_PID 2>/dev/null; wait $SERVER_PID 2>/dev/null' EXIT
+
+echo "Waiting for sglang on $SERVER_ADDR:$SERVER_PORT ..."
+READY=0
+for _ in $(seq 1 600); do
+  if bash -c "echo >/dev/tcp/$SERVER_ADDR/$SERVER_PORT" 2>/dev/null; then
+    READY=1
+    break
+  fi
+  sleep 1
+done
+if [ "$READY" != 1 ]; then
+  echo "Timeout waiting for sglang to listen on $SERVER_ADDR:$SERVER_PORT" >&2
+  exit 1
+fi
 
 python accuracy.py --model $MODEL --tokenizer $TOKENIZER \
 --dataset $DATASET --num-requests $REQUEST_NUM \

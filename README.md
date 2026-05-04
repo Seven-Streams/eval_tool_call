@@ -4,6 +4,8 @@ The evaluation script is modified based on the BFCL ast checker. The script uses
 
 ## Test the accuracy
 
+You can use `bash script.sh` directly to test the accuracy. You can also use the following commands manually:
+
 First launch the server.
 ```bash
 python -m sglang.launch_server --model-path Qwen/Qwen3.6-27B --host 127.0.0.1 --port 8000
