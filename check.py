@@ -23,6 +23,7 @@ SUPPORTED_MODEL = [
     "Llama-3.1-70B-Instruct-q0f16-MLC",
     "Qwen2.5-72B-Instruct-q0f16-MLC",
     "Qwen3.6-27B",
+    "Qwen3.6-35B-A3B",
     "ALL",
 ]
 
@@ -235,7 +236,9 @@ def check_simple(
                 if not acc:
                     return False, err
             elif info_arg["type"] == "dict":
-                acc, err = check_dict(real_arg, ideal_arg, info_arg["properties"])
+                acc, err = check_dict(
+                    gorilla, real_arg, ideal_arg, info_arg["properties"]
+                )
                 if not acc:
                     return False, err
     return True, Error()
@@ -278,7 +281,7 @@ def check_simple_schema(
             if not acc:
                 return False, err
         elif info_arg["type"] == "dict":
-            acc, err = check_dict(real_arg, None, info_arg["properties"])
+            acc, err = check_dict(gorilla, real_arg, None, info_arg["properties"])
             if not acc:
                 return False, err
     return True, Error()
@@ -411,7 +414,7 @@ def check_list(
                     return False, err
         elif item_type == "dict":
             for i, dictionary in enumerate(real_arg):
-                acc, err = check_dict(dictionary, None, item["properties"])
+                acc, err = check_dict(gorilla, dictionary, None, item["properties"])
                 if not acc:
                     return False, err
         return True, Error()
@@ -460,7 +463,9 @@ def check_list(
                         break
             elif item_type == "dict":
                 for i, dictionary in enumerate(real_arg):
-                    acc, err = check_dict(dictionary, [ideal[i]], item["properties"])
+                    acc, err = check_dict(
+                        gorilla, dictionary, [ideal[i]], item["properties"]
+                    )
                     if not acc:
                         match = False
                         final_err += f"[ideal {j}] {err}"
@@ -506,7 +511,7 @@ def check_dict(
                     return False, err
             elif item_type == "dict":
                 acc, err = check_dict(
-                    real_arg[key], None, properties[key]["properties"]
+                    gorilla, real_arg[key], None, properties[key]["properties"]
                 )
                 if not acc:
                     return False, err
@@ -557,7 +562,10 @@ def check_dict(
                         break
                 elif item_type == "dict":
                     acc, err = check_dict(
-                        real_arg[key], [ideal[key]], properties[key]["properties"]
+                        gorilla,
+                        real_arg[key],
+                        [ideal[key]],
+                        properties[key]["properties"],
                     )
                     if not acc:
                         match = False
